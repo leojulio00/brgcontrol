@@ -58,17 +58,17 @@
       <div class="position-sticky pt-3">
         <ul class="list-unstyled ps-0">
           <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+            <button class="btn btn-toggle align-items-center rounded collapsed btnDashboard" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
               Dashboard
             </button>
             <div class="collapse show" id="home-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">Dashboard</a></li>
+                <li><a href="#iniDashboard" class="link-dark rounded">Dashboard</a></li>
               </ul>
             </div>
           </li>
           <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+            <button class="btn btn-toggle align-items-center rounded collapsed btnVendas" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
               Vendas
             </button>
             <div class="collapse" id="dashboard-collapse">
@@ -80,7 +80,7 @@
             </div>
           </li>
           <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#caixa-collapse" aria-expanded="false">
+            <button class="btn btn-toggle align-items-center rounded collapsed btnCaixa" data-bs-toggle="collapse" data-bs-target="#caixa-collapse" aria-expanded="false">
               Caixa
             </button>
             <div class="collapse" id="caixa-collapse">
@@ -93,7 +93,7 @@
             </div>
           </li>
           <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#produtos-collapse" aria-expanded="false">
+            <button class="btn btn-toggle align-items-center rounded collapsed btnProdutos" data-bs-toggle="collapse" data-bs-target="#produtos-collapse" aria-expanded="false">
               Produtos
             </button>
             <div class="collapse" id="produtos-collapse">
@@ -107,28 +107,25 @@
             </div>
           </li>
           <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#usuarios-collapse" aria-expanded="false">
-              Usuários
+            <button class="btn btn-toggle align-items-center rounded collapsed btnColaboradores" data-bs-toggle="collapse" data-bs-target="#usuarios-collapse" aria-expanded="false">
+              Colaboradores
             </button>
             <div class="collapse" id="usuarios-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">Cadastro de usuários</a></li>
-                <li><a href="#" class="link-dark rounded">Remoção de usuários</a></li>
-                <li><a href="#" class="link-dark rounded">Ver usuários</a></li>
+                <li><a href="#" class="link-dark rounded">Cadastro de colaboradores</a></li>
+                <li><a href="#" class="link-dark rounded">Remoção de colaboradores</a></li>
+                <li><a href="#" class="link-dark rounded">Ver colaboradores</a></li>
               </ul>
             </div>
           </li>
           <li class="border-top my-3"></li>
           <li class="mb-1">
-            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-              Account
+            <button class="btn btn-toggle align-items-center rounded collapsed btnUsuario" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+              Usuário
             </button>
             <div class="collapse" id="account-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">New...</a></li>
-                <li><a href="#" class="link-dark rounded">Profile</a></li>
-                <li><a href="#" class="link-dark rounded">Settings</a></li>
-                <li><a href="#" class="link-dark rounded">Sign out</a></li>
+                <li><a href="#" class="link-dark rounded">Usuário</a></li>
               </ul>
             </div>
           </li>
@@ -137,19 +134,9 @@
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <section class="dashboard">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <section class="dashboard" style="display: none;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" name="iniDashboard">
           <h1 class="h2">Dashboard</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-            </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-              <span data-feather="calendar"></span>
-              This week
-            </button>
-          </div>
         </div>
   
         <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
@@ -284,6 +271,44 @@
         </div>
       </section>
 
+      <section class="vendas" style="display: none;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Vendas</h1>
+        </div>
+
+
+      </section>
+
+      <section class="caixa" style="display: none;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Caixa</h1>
+        </div>
+
+
+      </section>
+
+      <section class="produtos" style="display: none;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Produtos</h1>
+        </div>
+
+
+      </section>
+
+      <section class="colaboradores" style="display: none;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Colaboradores</h1>
+        </div>
+
+      </section>
+
+      <section class="usuario" style="display: none;">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Usuário</h1>
+        </div>
+
+      </section>
+
     </main>
   </div>
 </div>
@@ -291,6 +316,7 @@
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="sidebars.js"></script>
+    <script src="../js/sidebarActions.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
   </body>
