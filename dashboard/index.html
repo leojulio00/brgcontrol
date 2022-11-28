@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
+    <title>Bar&Rest</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
     <link rel="shortcut icon" href="../img/e-rest&bar favicon.png" type="image/x-icon">
@@ -36,6 +34,7 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
     <link href="sidebars.css" rel="stylesheet">
+    <link href="../css/buttons.css" rel="stylesheet">
   </head>
   <body>
     
@@ -73,9 +72,9 @@
             </button>
             <div class="collapse" id="dashboard-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">Registar venda</a></li>
-                <li><a href="#" class="link-dark rounded">Pedidos</a></li>
-                <li><a href="#" class="link-dark rounded">Mesas</a></li>
+                <li><a href="#sectionReg" class="link-dark rounded">Registar venda</a></li>
+                <li><a href="#sectionPedidos" class="link-dark rounded">Pedidos</a></li>
+                <li><a href="#sectionMesas" class="link-dark rounded">Mesas</a></li>
               </ul>
             </div>
           </li>
@@ -98,11 +97,11 @@
             </button>
             <div class="collapse" id="produtos-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">Cadastro de produtos</a></li>
-                <li><a href="#" class="link-dark rounded">Registo de entrada no estoque</a></li>
-                <li><a href="#" class="link-dark rounded">Registo de saída no estoque</a></li>
-                <li><a href="#" class="link-dark rounded">Remoção de produtos</a></li>
-                <li><a href="#" class="link-dark rounded">Ver estoque</a></li>
+                <li><a href="#sectionCadas" class="link-dark rounded">Cadastro de produtos</a></li>
+                <li><a href="#sectionEntrEst" class="link-dark rounded">Registo de entrada no estoque</a></li>
+                <!--<li><a href="#" class="link-dark rounded">Registo de saída no estoque</a></li>
+                <li><a href="#" class="link-dark rounded">Remoção de produtos</a></li>-->
+                <li><a href="#sectionVerEst" class="link-dark rounded">Ver estoque</a></li>
               </ul>
             </div>
           </li>
@@ -112,9 +111,9 @@
             </button>
             <div class="collapse" id="usuarios-collapse">
               <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li><a href="#" class="link-dark rounded">Cadastro de colaboradores</a></li>
-                <li><a href="#" class="link-dark rounded">Remoção de colaboradores</a></li>
-                <li><a href="#" class="link-dark rounded">Ver colaboradores</a></li>
+                <li><a href="#sectionCadasCol" class="link-dark rounded">Cadastro de colaboradores</a></li>
+                <li><a href="#sectionCadasCol" class="link-dark rounded">Remoção de colaboradores</a></li>
+                <li><a href="#sectionVerCol" class="link-dark rounded">Ver colaboradores</a></li>
               </ul>
             </div>
           </li>
@@ -276,6 +275,213 @@
           <h1 class="h2">Vendas</h1>
         </div>
 
+        <div class="registarVendas">
+          <h2 id="sectionReg">Registar Vendas</h2>
+
+          <div>
+            <div class="bd-example">
+            <form class="row g-3">
+              <div class="col-md-5">
+                <label for="validationServer01" class="form-label">Codigo do colaboradores</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                  <input type="text" class="form-control" id="validationServer01" required>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <label for="validationServer02" class="form-label">Nome do produto</label>
+                <input type="text" class="form-control " id="validationServer02" required>
+              </div>
+              <div class="col-md-2">
+                <label for="validationServerUsername" class="form-label">Preço</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" disabled>
+                  <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="quantProd" class="form-label">Quantidade</label>
+                <input type="text" class="form-control" id="quantProd">
+              </div>
+              <div class="col-md-3">
+                <label for="validationServer03" class="form-label">Valor entregue</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="validationServer03" required>
+                  <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="trocoCliente" class="form-label">Troco</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="trocoCliente" aria-describedby="inputGroupPrepend3" disabled>
+                  <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="horaReg" class="form-label">Hora</label>
+                  <input type="text" class="form-control horaReg" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary" type="submit">Registar Venda</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="pedidos" style="margin: 30px 0px">
+          <h2 id="sectionPedidos">Pedidos</h2>
+
+          <div class="">
+            <form class="row g-3">
+              <div class="col-md-6">
+                <label for="codPedido" class="form-label">Codigo do pedido</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                  <input type="text" class="form-control codPedido" id="codPedido" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="estadoPedi" class="form-label">Estado do pedido</label>                
+                
+                  <select class="form-select form-select" id="estadoPedi" aria-label=".form-select-lg example">
+                    <option selected>Selecione a opção</option>
+                    <option value="1">Aberto</option>
+                    <option value="2">Cancelado</option>
+                    <option value="3">Finalizado</option>
+                  </select>
+                
+              </div>
+              <div class="col-md-12">
+                <label for="prodPedidos" class="form-label">Produtos pedidos</label>
+                <textarea class="form-control prodPedidos" aria-label="With textarea" id="prodPedidos"></textarea>
+              </div>
+              
+              <div class="col-4">
+                <button class="btn btn-primary" type="submit">Adicionar Pedido</button>
+              </div>
+              <div class="col-4">
+                <button class="btn btn-primary" type="submit">Alterar Pedido</button>
+              </div>
+              <div class="col-4">
+                <button class="btn btn-primary" type="submit">Apagar Pedido</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="" style="margin: 30px 0px">
+            <h3>Ver Pedidos</h3>
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pedidos feitos</th>
+                <th scope="col">Estado</th>
+                
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td >Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="Mesas" style="margin: 30px 0px">
+          <h2 id="sectionMesas">Mesas</h2>
+
+          <div class="">
+            <form class="row g-3">
+              <div class="col-md-4">
+                <label for="codMesa" class="form-label">Codigo da mesa</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                  <input type="text" class="form-control codMesa" id="codMesa" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="estadoPedi" class="form-label">Estado da mesa</label>                
+                
+                  <select class="form-select form-select" id="estadoPedi" aria-label=".form-select-lg example">
+                    <option selected>Selecione a opção</option>
+                    <option value="1">Aberto</option>
+                    <option value="2">Cancelado</option>
+                    <option value="3">Finalizado</option>
+                  </select>
+                
+              </div>
+              <div class="col-md-4">
+                <label for="responsaMesa" class="form-label">Responsavel</label>
+                <input type="text" class="form-control horaReg" id="responsaMesa" aria-describedby="inputGroupPrepend3">
+              </div>
+              <div class="col-md-12">
+                <label for="prodConsumidos" class="form-label">Produtos Consumidos</label>
+                <textarea class="form-control prodConsumidos" aria-label="With textarea" id="prodConsumidos"></textarea>
+              </div>
+              
+              <div class="col-4">
+                <button class="btn btn-primary" type="submit">Adicionar Pedido</button>
+              </div>
+              <div class="col-4">
+                <button class="btn btn-primary" type="submit">Alterar Pedido</button>
+              </div>
+              <div class="col-4">
+                <button class="btn btn-primary" type="submit">Apagar Pedido</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="" style="margin: 30px 0px">
+            <h3>Ver Pedidos</h3>
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pedidos feitos</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Responsavel</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td >Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Otto</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
 
       </section>
 
@@ -292,6 +498,121 @@
           <h1 class="h2">Produtos</h1>
         </div>
 
+        <div class="registarVendas">
+          <h2 id="sectionCadas">Cadastro de produtos</h2>
+
+          <div>
+            <div class="bd-example">
+            <form class="row g-3">
+              <div class="col-md-4">
+                <label for="validationServer01" class="form-label">Codigo do produto</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                  <input type="text" class="form-control" id="validationServer01" required>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <label for="validationServer02" class="form-label">Nome do produto</label>
+                <input type="text" class="form-control " id="validationServer02" required>
+              </div>
+              <div class="col-md-8">
+                <label for="validationServerUsername" class="form-label">Preço para venda</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3">
+                  <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="horaReg" class="form-label">Hora</label>
+                  <input type="text" class="form-control horaReg" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+              </div>
+              <div class="col-3">
+                <button class="btn btn-primary" type="submit">Registar Produto</button>
+              </div>
+              <div class="col-3">
+                <button class="btn btn-primary" type="submit">Adicionar Produto</button>
+              </div>
+              <div class="col-3">
+                <button class="btn btn-primary" type="submit">Alterar Produto</button>
+              </div>
+              <div class="col-3">
+                <button class="btn btn-primary" type="submit">Apagar Produto</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="" style="margin: 30px 0px">
+          <h2 id="sectionEntrEst">Registo de entrada no stoque</h2>
+
+          <div>
+            <div class="bd-example">
+            <form class="row g-3">
+              <div class="col-md-4">
+                <label for="validationServer01" class="form-label">Codigo do produto</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                  <input type="text" class="form-control" id="validationServer01" required>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <label for="validationServer02" class="form-label">Nome do produto</label>
+                <input type="text" class="form-control " id="validationServer02" disabled>
+              </div>
+              <div class="col-md-8">
+                <label for="quantProd" class="form-label">Quantidade</label>
+                <input type="text" class="form-control" id="quantProd">
+              </div>
+              <div class="col-md-4">
+                <label for="horaReg" class="form-label">Hora</label>
+                  <input type="text" class="form-control horaReg" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+              </div>
+              <div class="col-4">
+                <button class="btn btn-primary" type="submit">Adicionar Produto</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="" style="margin: 30px 0px">
+          <h2 id="sectionVerEst">Ver stoque</h2>
+
+          <div>
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pedidos feitos</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Responsavel</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td >Larry the Bird</td>
+                <td>@twitter</td>
+                <td>Otto</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
 
       </section>
 
@@ -299,7 +620,103 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Colaboradores</h1>
         </div>
-
+  
+          <div class="registarVendas">
+            <h2 id="sectionCadasCol">Cadastro de Colaboradores</h2>
+  
+            <div>
+              <div class="bd-example">
+              <form class="row g-3">
+                <div class="col-md-4">
+                  <label for="validationServer01" class="form-label">Codigo do colaboradores</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                    <input type="text" class="form-control" id="validationServer01" required>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <label for="validationServer02" class="form-label">Nome do colaboradores</label>
+                  <input type="text" class="form-control " id="validationServer02" required>
+                </div>
+                <div class="col-md-8">
+                  <label for="validationServer02" class="form-label">Endereço</label>
+                  <input type="address" class="form-control " id="validationServer02" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationServer02" class="form-label">Telefone</label>
+                  <input type="tel" class="form-control " id="validationServer02" required>
+                </div>
+                <div class="col-md-12">
+                  <label for="validationServer02" class="form-label">E-mail</label>
+                  <input type="email" class="form-control " id="validationServer02" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="categoria" class="form-label">Categoria</label>
+                  <select class="form-select form-select" id="categoria" aria-label=".form-select-lg example">
+                    <option selected>Selecione a opção</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Gerente Caixa</option>
+                    <option value="3">Gerente Vendas</option>
+                    <option value="4">Gerente Estoque</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="passIni" class="form-label">Senha Inicial</label>
+                    <input type="password" class="form-control passIni" id="passIni" aria-describedby="inputGroupPrepend3">
+                </div>
+                <div class="col-3">
+                  <button class="btn btn-primary" type="submit">Registar Produto</button>
+                </div>
+                <div class="col-3">
+                  <button class="btn btn-primary" type="submit">Adicionar Produto</button>
+                </div>
+                <div class="col-3">
+                  <button class="btn btn-primary" type="submit">Alterar Produto</button>
+                </div>
+                <div class="col-3">
+                  <button class="btn btn-primary" type="submit">Apagar Produto</button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
+  
+          <div class="" style="margin: 30px 0px">
+            <h2 id="sectionVerCol">Ver colaboradores</h2>
+  
+            <div>
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Pedidos feitos</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Responsavel</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>Otto</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>Otto</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td >Larry the Bird</td>
+                  <td>@twitter</td>
+                  <td>Otto</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
       </section>
 
       <section class="usuario" style="display: none;">
