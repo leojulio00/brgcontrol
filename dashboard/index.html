@@ -631,52 +631,54 @@
                   <label for="validationServer01" class="form-label">Codigo do colaboradores</label>
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <input type="text" class="form-control" id="validationServer01" required>
+                    <input type="text" class="form-control codColab" id="validationServer01" required>
                   </div>
                 </div>
                 <div class="col-md-8">
                   <label for="validationServer02" class="form-label">Nome do colaboradores</label>
-                  <input type="text" class="form-control " id="validationServer02" required>
+                  <input type="text" class="form-control nomeColab" id="validationServer02" required>
                 </div>
                 <div class="col-md-8">
                   <label for="validationServer02" class="form-label">Endereço</label>
-                  <input type="address" class="form-control " id="validationServer02" required>
+                  <input type="address" class="form-control enderColab" id="validationServer02" required>
                 </div>
                 <div class="col-md-4">
                   <label for="validationServer02" class="form-label">Telefone</label>
-                  <input type="tel" class="form-control " id="validationServer02" required>
+                  <input type="tel" class="form-control telColab" id="validationServer02" required>
                 </div>
                 <div class="col-md-12">
                   <label for="validationServer02" class="form-label">E-mail</label>
-                  <input type="email" class="form-control " id="validationServer02" required>
+                  <input type="email" class="form-control emailColab" id="validationServer02" required>
                 </div>
                 <div class="col-md-6">
                   <label for="categoria" class="form-label">Categoria</label>
-                  <select class="form-select form-select" id="categoria" aria-label=".form-select-lg example">
+                  <select class="form-select form-select catgColab" id="categoria" aria-label=".form-select-lg example">
                     <option selected>Selecione a opção</option>
-                    <option value="1">Administrador</option>
-                    <option value="2">Gerente Caixa</option>
-                    <option value="3">Gerente Vendas</option>
-                    <option value="4">Gerente Estoque</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Gerente Caixa">Gerente Caixa</option>
+                    <option value="Gerente Vendas">Gerente Vendas</option>
+                    <option value="Gerente Estoque">Gerente Estoque</option>
                   </select>
                 </div>
                 <div class="col-md-6">
                   <label for="passIni" class="form-label">Senha Inicial</label>
-                    <input type="password" class="form-control passIni" id="passIni" aria-describedby="inputGroupPrepend3">
-                </div>
-                <div class="col-3">
-                  <button class="btn btn-primary" type="submit">Registar Produto</button>
-                </div>
-                <div class="col-3">
-                  <button class="btn btn-primary" type="submit">Adicionar Produto</button>
-                </div>
-                <div class="col-3">
-                  <button class="btn btn-primary" type="submit">Alterar Produto</button>
-                </div>
-                <div class="col-3">
-                  <button class="btn btn-primary" type="submit">Apagar Produto</button>
+                    <input type="password" class="form-control passIni passColab" id="passIni" aria-describedby="inputGroupPrepend3">
                 </div>
               </form>
+                <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="margin: 20px 0px ;">
+                  <div class="col-3">
+                    <button class="btn btn-primary btnCadasColab" type="submit">Cadastrar Colaborador</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-primary" type="submit">Adicionar Colaborador</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-primary" type="submit">Alterar Colaborador</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-primary" type="submit">Apagar Colaborador</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -734,6 +736,7 @@
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="sidebars.js"></script>
     <script src="../js/sidebarActions.js"></script>
+    <script src="../js/adicionaruser.js" type="module"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
   </body>
