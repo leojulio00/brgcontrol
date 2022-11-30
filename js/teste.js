@@ -29,7 +29,7 @@ btnEntrar.addEventListener("click", ()=>{
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    alert("usuario criado com sucesso")
+    alert("login feito com sucesso")
     window.location.href = "dashboard/index.html"
   })
   .catch((error) => {
