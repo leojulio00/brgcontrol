@@ -53,12 +53,12 @@ function writeUserData(codColab, nomeColab, enderColab, telColab, emailColab, ca
     writeUserData(codColab.value, nomeColab.value, enderColab.value, telColab.value, emailColab.value, catgColab.value)
 
     alert("usuario criado com sucesso")
-      codColab.innerHTML = ""
-      nomeColab.innerHTML = ""
-      enderColab.innerHTML = ""
-      telColab.innerHTML = ""
-      emailColab.innerHTML = ""
-      catgColab.innerHTML = ""
+      codColab.value = ""
+      nomeColab.value = ""
+      enderColab.value = ""
+      telColab.value = ""
+      emailColab.value = ""
+      catgColab.value = ""
   })
   .catch((error) => {
     const errorCode = error.code;

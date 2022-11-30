@@ -281,48 +281,55 @@
           <div>
             <div class="bd-example">
             <form class="row g-3">
-              <div class="col-md-5">
-                <label for="validationServer01" class="form-label">Codigo do colaboradores</label>
+              <div class="col-md-2">
+                <label for="validationServer01" class="form-label">Codigo do Produto</label>
                 <div class="input-group has-validation">
                   <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                  <input type="text" class="form-control" id="validationServer01" required>
+                  <input type="text" class="form-control codProdV" id="validationServer01" required>
                 </div>
               </div>
               <div class="col-md-5">
                 <label for="validationServer02" class="form-label">Nome do produto</label>
-                <input type="text" class="form-control " id="validationServer02" required>
+                <input type="text" class="form-control nomeProdV" id="validationServer02" required>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <label for="validationServerUsername" class="form-label">Preço</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" disabled>
+                  <input type="text" class="form-control precVenda" id="validationServerUsername" aria-describedby="inputGroupPrepend3" disabled>
+                  <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <label for="quantProd" class="form-label">Quantidade</label>
+                <input type="text" class="form-control quantProdV" id="quantProd">
+              </div>
+              <div class="col-md-3">
+                <label for="validationServerUsername" class="form-label">Valor total</label>
+                <div class="input-group">
+                  <input type="text" class="form-control valorTot" id="validationServerUsername" aria-describedby="inputGroupPrepend3" disabled>
                   <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
                 </div>
               </div>
               <div class="col-md-3">
-                <label for="quantProd" class="form-label">Quantidade</label>
-                <input type="text" class="form-control" id="quantProd">
-              </div>
-              <div class="col-md-3">
                 <label for="validationServer03" class="form-label">Valor entregue</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" id="validationServer03" required>
+                  <input type="text" class="form-control valorEntr" id="validationServer03" required>
                   <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
                 </div>
               </div>
               <div class="col-md-3">
                 <label for="trocoCliente" class="form-label">Troco</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" id="trocoCliente" aria-describedby="inputGroupPrepend3" disabled>
+                  <input type="text" class="form-control valorTr" id="trocoCliente" aria-describedby="inputGroupPrepend3" disabled>
                   <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
                 </div>
               </div>
               <div class="col-md-3">
                 <label for="horaReg" class="form-label">Hora</label>
-                  <input type="text" class="form-control horaReg" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+                  <input type="text" class="form-control horaRegVen" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
               </div>
               <div class="col-12">
-                <button class="btn btn-primary" type="submit">Registar Venda</button>
+                <button class="btn btn-primary btnRegVenda" type="submit">Registar Venda</button>
               </div>
             </form>
             </div>
@@ -344,27 +351,27 @@
               <div class="col-md-6">
                 <label for="estadoPedi" class="form-label">Estado do pedido</label>                
                 
-                  <select class="form-select form-select" id="estadoPedi" aria-label=".form-select-lg example">
+                  <select class="form-select form-select estadoPedi" id="estadoPedi" aria-label=".form-select-lg example">
                     <option selected>Selecione a opção</option>
-                    <option value="1">Aberto</option>
-                    <option value="2">Cancelado</option>
-                    <option value="3">Finalizado</option>
+                    <option value="Aberto">Aberto</option>
+                    <option value="Cancelado">Cancelado</option>
+                    <option value="Finalizado">Finalizado</option>
                   </select>
                 
               </div>
               <div class="col-md-12">
-                <label for="prodPedidos" class="form-label">Produtos pedidos</label>
+                <label for="prodPedidos" class="form-label prodPed">Produtos pedidos</label>
                 <textarea class="form-control prodPedidos" aria-label="With textarea" id="prodPedidos"></textarea>
               </div>
               
               <div class="col-4">
-                <button class="btn btn-primary" type="submit">Adicionar Pedido</button>
+                <button class="btn btn-primary btnRegPedido" type="submit">Adicionar Pedido</button>
               </div>
               <div class="col-4">
-                <button class="btn btn-primary" type="submit">Alterar Pedido</button>
+                <button class="btn btn-primary btnAltPedido" type="submit">Alterar Pedido</button>
               </div>
               <div class="col-4">
-                <button class="btn btn-primary" type="submit">Apagar Pedido</button>
+                <button class="btn btn- btnCanPedido" type="submit" disabled>Apagar Pedido</button>
               </div>
             </form>
           </div>
@@ -380,25 +387,7 @@
                 
               </tr>
               </thead>
-              <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td >Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              </tbody>
+              <tbody class="bodyPedidos"></tbody>
             </table>
           </div>
         </div>
@@ -428,7 +417,7 @@
               </div>
               <div class="col-md-4">
                 <label for="responsaMesa" class="form-label">Responsavel</label>
-                <input type="text" class="form-control horaReg" id="responsaMesa" aria-describedby="inputGroupPrepend3">
+                <input type="text" class="form-control" id="responsaMesa" aria-describedby="inputGroupPrepend3">
               </div>
               <div class="col-md-12">
                 <label for="prodConsumidos" class="form-label">Produtos Consumidos</label>
@@ -498,7 +487,7 @@
           <h1 class="h2">Produtos</h1>
         </div>
 
-        <div class="registarVendas">
+        <div class="registarProdutos">
           <h2 id="sectionCadas">Cadastro de produtos</h2>
 
           <div>
@@ -508,37 +497,39 @@
                 <label for="validationServer01" class="form-label">Codigo do produto</label>
                 <div class="input-group has-validation">
                   <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                  <input type="text" class="form-control" id="validationServer01" required>
+                  <input type="text" class="form-control codProd" id="validationServer01" required>
                 </div>
               </div>
               <div class="col-md-8">
                 <label for="validationServer02" class="form-label">Nome do produto</label>
-                <input type="text" class="form-control " id="validationServer02" required>
+                <input type="text" class="form-control nomeProd" id="validationServer02" required>
               </div>
               <div class="col-md-8">
                 <label for="validationServerUsername" class="form-label">Preço para venda</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3">
+                  <input type="text" class="form-control precVenda" id="validationServerUsername" aria-describedby="inputGroupPrepend3">
                   <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
                 </div>
               </div>
               <div class="col-md-4">
                 <label for="horaReg" class="form-label">Hora</label>
-                  <input type="text" class="form-control horaReg" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+                  <input type="text" class="form-control horaRegCadProd" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
               </div>
-              <div class="col-3">
-                <button class="btn btn-primary" type="submit">Registar Produto</button>
-              </div>
-              <div class="col-3">
-                <button class="btn btn-primary" type="submit">Adicionar Produto</button>
-              </div>
-              <div class="col-3">
-                <button class="btn btn-primary" type="submit">Alterar Produto</button>
-              </div>
-              <div class="col-3">
-                <button class="btn btn-primary" type="submit">Apagar Produto</button>
-              </div>
+              
             </form>
+
+            <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="margin: 20px 0px ;">
+              <div class="col-4">
+                <button class="btn btn-primary btnRegProd" type="submit">Registar Produto</button>
+              </div>
+              <div class="col-4">
+                <button class="btn btn-primary btnAlterProd" type="submit">Alterar Produto</button>
+              </div>
+              <div class="col-4">
+                <button class="btn btn-primary btnApagProd" type="submit" disabled>Apagar Produto</button>
+              </div>
+            </div>
+
             </div>
           </div>
         </div>
@@ -550,26 +541,30 @@
             <div class="bd-example">
             <form class="row g-3">
               <div class="col-md-4">
-                <label for="validationServer01" class="form-label">Codigo do produto</label>
+                <label for="validationServer01" class="form-label label2">Codigo do produto</label>
                 <div class="input-group has-validation">
                   <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                  <input type="text" class="form-control" id="validationServer01" required>
+                  <input type="text" class="form-control codProdE" id="validationServer01" required>
                 </div>
               </div>
               <div class="col-md-8">
                 <label for="validationServer02" class="form-label">Nome do produto</label>
-                <input type="text" class="form-control " id="validationServer02" disabled>
-              </div>
-              <div class="col-md-8">
-                <label for="quantProd" class="form-label">Quantidade</label>
-                <input type="text" class="form-control" id="quantProd">
+                <input type="text" class="form-control nomeProdE" id="validationServer02" disabled>
               </div>
               <div class="col-md-4">
-                <label for="horaReg" class="form-label">Hora</label>
-                  <input type="text" class="form-control horaReg" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+                <label for="quantProd" class="form-label">Quantidade</label>
+                <input type="text" class="form-control quantProdE" id="quantProd">
+              </div>
+              <div class="col-md-4">
+                <label for="horaReg" class="form-label">Hora registrada</label>
+                  <input type="text" class="form-control horaRegA" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+              </div>
+              <div class="col-md-4">
+                <label for="horaReg" class="form-label">Hora actual</label>
+                  <input type="text" class="form-control horaRegEst" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
               </div>
               <div class="col-4">
-                <button class="btn btn-primary" type="submit">Adicionar Produto</button>
+                <button class="btn btn-primary btnAdiProdE" type="submit">Adicionar Produto</button>
               </div>
             </form>
             </div>
@@ -579,36 +574,21 @@
         <div class="" style="margin: 30px 0px">
           <h2 id="sectionVerEst">Ver stoque</h2>
 
+          <!--<div class="col-4">
+            <button class="btn btn-outline-primary btnRefresh" type="submit">Refresh</button>
+          </div>-->
+
           <div>
             <table class="table table-striped">
               <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Pedidos feitos</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Responsavel</th>
+                <th scope="col">Nome do produto</th>
+                <th scope="col">Quantidade disponivel</th>
+                <th scope="col">Ultima modificacao</th>
               </tr>
               </thead>
-              <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td >Larry the Bird</td>
-                <td>@twitter</td>
-                <td>Otto</td>
-              </tr>
-              </tbody>
+              <tbody class="bodyEstoque"></tbody>
             </table>
           </div>
         </div>
@@ -691,30 +671,15 @@
                 <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Pedidos feitos</th>
-                  <th scope="col">Estado</th>
-                  <th scope="col">Responsavel</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Categoria</th>
+                  <th scope="col">Esdereco</th>
+                  <th scope="col">telefone</th>
+                  <th scope="col">E-mail</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td >Larry the Bird</td>
-                  <td>@twitter</td>
-                  <td>Otto</td>
-                </tr>
+                <tbody class="bodyColab">
+                
                 </tbody>
               </table>
             </div>
@@ -737,6 +702,14 @@
     <script src="sidebars.js"></script>
     <script src="../js/sidebarActions.js"></script>
     <script src="../js/adicionaruser.js" type="module"></script>
+    <script src="../js/adicionarprod.js" type="module"></script>
+    <script src="../js/entradaEstoque.js" type="module"></script>
+    <script src="../js/regVenda.js" type="module"></script>
+    <script src="../js/verProd.js" type="module"></script>
+    <script src="../js/adicionarpedido.js" type="module"></script>
+    <script src="../js/verPedidos.js" type="module"></script>
+    <script src="../js/verColab.js" type="module"></script>
+    <script src="../js/horaReg.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
   </body>
