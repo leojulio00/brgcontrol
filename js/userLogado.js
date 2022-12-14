@@ -23,7 +23,7 @@ onAuthStateChanged(auth, (user) => {
     // https://firebase.google.com/docs/reference/js/firebase.User
     const uid = user.email;
     
-    if(uid !== nome){
+    if(uid != nome){
         window.location.href = "../index.html"
     }else{
         window.location.href = "./dashboard.html"
@@ -31,6 +31,6 @@ onAuthStateChanged(auth, (user) => {
   } else {
     // User is signed out
     // ...
-    //window.location.href = "../index.html"
+    window.location.href = "../index.html"
   }
 }); 

@@ -19,16 +19,9 @@ const firebaseConfig = {
 
 btnLogoff.addEventListener("click", () => {
     signOut(auth).then(() => {
-        alert("LogOff feit com sucesso")
+        window.localStorage.clear();
+        alert("LogOut feito com sucesso")
     }).catch((error) => {
-        alert("LogOut feit0 sem sucesso")
+        alert("LogOut feito sem sucesso")
     }); 
 })
-
-function LogOut(){
-    signOut(auth).then(() => {
-        alert("LogOff feit com sucesso")
-    }).catch((error) => {
-        alert("LogOut feit0 sem sucesso")
-    }); 
-}
