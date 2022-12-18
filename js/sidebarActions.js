@@ -39,7 +39,7 @@ btnVendas.addEventListener("click", () =>{
     }
 })
 
-btnCaixa.addEventListener("click", () =>{
+/*btnCaixa.addEventListener("click", () =>{
     if(sectionCaixa.style.display == "none"){
         sectionCaixa.style.display = "block"
         sectionDashboard.style.display = "none"
@@ -50,7 +50,7 @@ btnCaixa.addEventListener("click", () =>{
     }else{
         //sectionCaixa.style.display = "none"
     }
-})
+})*/
 
 btnProdutos.addEventListener("click", () =>{
     if(sectionProdutos.style.display == "none"){

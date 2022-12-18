@@ -11,7 +11,9 @@ var valorEntr = document.querySelector(".valorEntr")
 var valorTr = document.querySelector(".valorTr")
 var horaRegVen = document.querySelector(".horaRegVen")
 var btnRegVenda = document.querySelector(".btnRegVenda")
+var codProdVendas = 0
 var precVendaV = 0
+var valorTotal
 
 
 const firebaseConfig = {
@@ -53,34 +55,35 @@ codProdV.addEventListener("keyup", ()=>{
 })
 
 quantProdV.addEventListener("keyup", ()=>{
-    var valorTotal = precVendaV * quantProdV.value
+  valorTotal = precVendaV * quantProdV.value
 
-    valorTot.value = valorTotal
+  valorTot.value = valorTotal
 })
 
 valorEntr.addEventListener("keyup", ()=>{
-  var valorTroco = Math.abs(valorTot.value - valorEntr.value)
-  valorTr.value = valorTroco
-
-    if(valorEntr.value < valorTot.value){
-        //alert("O valor dado e menor que valor total")
-        valorTr.value = 0
-    }
-
+  if(valorEntr.value < valorTotal){
+    //alert("O valor dado e menor que valor total")
+    valorTr.value = 0
+  }else{
+    var valorTroco = Math.abs(valorTot.value - valorEntr.value)
+    valorTr.value = valorTroco
+  }
 })
 
 
 
 btnRegVenda.addEventListener("click", ()=>{
-  if(valorEntr.value > valorTot.value){
+  if(valorEntr.value < valorTotal){
     alert("O valor dado e menor que valor total")
+    window.location.href = "./dashboard.html?#sectionReg"
   }else{
     /*var valorTroco = Math.abs(valorTot.value - valorEntr.value)
     valorTr.value = valorTroco*/
 
     function adicionarProd(codProdV, nomeProdV, precVenda, quantProdV, valorTot, valorEntr, valorTr, horaRegVen) {
       const db = getDatabase();
-      set(ref(db, 'vendas/' + codProdV), {
+      set(ref(db, 'vendas/' + codProdVendas + 1), {
+        codProdV: codProdV,
         nomeProdV: nomeProdV,
         precVenda: precVenda,
         quantProdV: quantProdV,
