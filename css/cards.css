@@ -1,0 +1,48 @@
+.cardNumGerais{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.cardSaldo{
+    width fit-content;
+    height: 200px;
+    min-width: 150px;
+    max-width: 350px;
+    margin: 20px;
+    padding: 20px;
+    background: #1A227E;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px #000;
+}
+
+.saldoContaTxt{
+    font-size: 3rem;
+}
+
+.cardGanho{
+    min-width: 100px;
+    height: 200px;
+    
+    margin: 20px;
+    padding: 20px;
+    background: #1A227E;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px #000;
+}
+
+.cardGanhoGanho{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.saldoGanhoTxt{
+    font-size: 3rem;
+}

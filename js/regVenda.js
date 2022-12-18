@@ -59,30 +59,39 @@ quantProdV.addEventListener("keyup", ()=>{
 })
 
 valorEntr.addEventListener("keyup", ()=>{
+  var valorTroco = Math.abs(valorTot.value - valorEntr.value)
+  valorTr.value = valorTroco
+
     if(valorEntr.value < valorTot.value){
-        alert("O valor dado e menor que valor total")
-    }else{
-        var valorTroco = Math.abs(valorTot.value - valorEntr.value)
+        //alert("O valor dado e menor que valor total")
+        valorTr.value = 0
     }
 
-    valorTr.value = valorTroco
 })
 
-btnRegVenda.addEventListener("click", ()=>{
-function adicionarProd(codProdV, nomeProdV, precVenda, quantProdV, valorTot, valorEntr, valorTr, horaRegVen) {
-  const db = getDatabase();
-  set(ref(db, 'vendas/' + codProdV), {
-    nomeProdV: nomeProdV,
-    precVenda: precVenda,
-    quantProdV: quantProdV,
-    valorTot: valorTot,
-    valorEntr: valorEntr,
-    valorTr: valorTr,
-    horaRegVen: horaRegVen
-  });
-}
 
-adicionarProd(codProdV.value, nomeProdV.value, precVenda.value, quantProdV.value, valorTot.value, valorEntr.value, valorTr.value, horaRegVen.value)
+
+btnRegVenda.addEventListener("click", ()=>{
+  if(valorEntr.value > valorTot.value){
+    alert("O valor dado e menor que valor total")
+  }else{
+    /*var valorTroco = Math.abs(valorTot.value - valorEntr.value)
+    valorTr.value = valorTroco*/
+
+    function adicionarProd(codProdV, nomeProdV, precVenda, quantProdV, valorTot, valorEntr, valorTr, horaRegVen) {
+      const db = getDatabase();
+      set(ref(db, 'vendas/' + codProdV), {
+        nomeProdV: nomeProdV,
+        precVenda: precVenda,
+        quantProdV: quantProdV,
+        valorTot: valorTot,
+        valorEntr: valorEntr,
+        valorTr: valorTr,
+        horaRegVen: horaRegVen
+      });
+    }
+
+    adicionarProd(codProdV.value, nomeProdV.value, precVenda.value, quantProdV.value, valorTot.value, valorEntr.value, valorTr.value, horaRegVen.value)
 
     alert("Venda cadastrada com sucesso")
     codProdV.value = ""
@@ -93,7 +102,12 @@ adicionarProd(codProdV.value, nomeProdV.value, precVenda.value, quantProdV.value
     valorEntr.value = ""
     valorTr.value = ""
     horaRegVen.value
+  }
 })
+
+
+
+
 
 
 

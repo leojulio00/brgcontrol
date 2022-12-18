@@ -37,6 +37,7 @@
     <link href="dashboard.css" rel="stylesheet">
     <link href="sidebars.css" rel="stylesheet">
     <link href="../css/buttons.css" rel="stylesheet">
+    <link href="../css/cards.css" rel="stylesheet">
 </head>
 
 <body>  
@@ -60,11 +61,11 @@
           <ul class="list-unstyled ps-0">
             <li class="mb-1">
               <button class="btn btn-toggle align-items-center rounded collapsed btnDashboard" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                Dashboard
+                Página inicial
               </button>
               <div class="collapse show" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#iniDashboard" class="link-dark rounded">Dashboard</a></li>
+                  <li><a href="#iniDashboard" class="link-dark rounded">Página inicial</a></li>
                 </ul>
               </div>
             </li>
@@ -80,7 +81,7 @@
                 </ul>
               </div>
             </li>
-            <li class="mb-1">
+            <!--<li class="mb-1">
               <button class="btn btn-toggle align-items-center rounded collapsed btnCaixa" data-bs-toggle="collapse" data-bs-target="#caixa-collapse" aria-expanded="false">
                 Caixa
               </button>
@@ -92,7 +93,7 @@
                   <li><a href="#" class="link-dark rounded">Registos</a></li>
                 </ul>
               </div>
-            </li>
+            </li>-->
             <li class="mb-1">
               <button class="btn btn-toggle align-items-center rounded collapsed btnProdutos" data-bs-toggle="collapse" data-bs-target="#produtos-collapse" aria-expanded="false">
                 Produtos
@@ -135,141 +136,56 @@
       </nav>
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <section class="dashboard" style="display: none;">
+        <section class="dashboard" style="display: block;">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" name="iniDashboard">
-            <h1 class="h2">Dashboard</h1>
+            <h1 class="h2">Página inicial</h1>
           </div>
-    
-          <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-    
+          <div class="cardNumGerais">
+            <div class="col-md-3">
+              <div class="card-body cardSaldo">
+                <h5 class="card-title">Saldo na conta</h5>
+                <div>
+                  <h1 class="saldoContaTxt">99</h1>
+                  <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                </div>
+              </div>
+            </div>  
+            
+            <div class="col-md-9">
+              <div class="card-body cardGanho">
+                <h5 class="card-title">Ganhos</h5>
+                <div class="cardGanhoGanho">
+                  <div>
+                    <p class="card-title">Hoje, até agora</p>
+                    <h1 class="saldoGanhoTxt">99</h1>
+                    <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                  </div>
+
+                  <div>
+                    <p class="card-title">Ontem</p>
+                    <h1 class="saldoGanhoTxt">99</h1>
+                    <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                  </div>
+
+                  <div>
+                    <p class="card-title">Últimos 7 dias</p>
+                    <h1 class="saldoGanhoTxt">99</h1>
+                    <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                  </div>
+
+                  <div>
+                    <p class="card-title">Este mês</p>
+                    <h1 class="saldoGanhoTxt">99</h1>
+                    <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                  </div>
+
+                </div>
+              </div>
+            </div>  
+          </div>
+
           <h2>Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Header</th>
-                  <th scope="col">Header</th>
-                  <th scope="col">Header</th>
-                  <th scope="col">Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>random</td>
-                  <td>data</td>
-                  <td>placeholder</td>
-                  <td>text</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>placeholder</td>
-                  <td>irrelevant</td>
-                  <td>visual</td>
-                  <td>layout</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>data</td>
-                  <td>rich</td>
-                  <td>dashboard</td>
-                  <td>tabular</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>information</td>
-                  <td>placeholder</td>
-                  <td>illustrative</td>
-                  <td>data</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>text</td>
-                  <td>random</td>
-                  <td>layout</td>
-                  <td>dashboard</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>dashboard</td>
-                  <td>irrelevant</td>
-                  <td>text</td>
-                  <td>placeholder</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>dashboard</td>
-                  <td>illustrative</td>
-                  <td>rich</td>
-                  <td>data</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>placeholder</td>
-                  <td>tabular</td>
-                  <td>information</td>
-                  <td>irrelevant</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>random</td>
-                  <td>data</td>
-                  <td>placeholder</td>
-                  <td>text</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>placeholder</td>
-                  <td>irrelevant</td>
-                  <td>visual</td>
-                  <td>layout</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>data</td>
-                  <td>rich</td>
-                  <td>dashboard</td>
-                  <td>tabular</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>information</td>
-                  <td>placeholder</td>
-                  <td>illustrative</td>
-                  <td>data</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>text</td>
-                  <td>placeholder</td>
-                  <td>layout</td>
-                  <td>dashboard</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>dashboard</td>
-                  <td>irrelevant</td>
-                  <td>text</td>
-                  <td>visual</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>dashboard</td>
-                  <td>illustrative</td>
-                  <td>rich</td>
-                  <td>data</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>random</td>
-                  <td>tabular</td>
-                  <td>information</td>
-                  <td>text</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          
         </section>
 
         <section class="vendas" style="display: none;">
