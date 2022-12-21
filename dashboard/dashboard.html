@@ -38,6 +38,7 @@
     <link href="sidebars.css" rel="stylesheet">
     <link href="../css/buttons.css" rel="stylesheet">
     <link href="../css/cards.css" rel="stylesheet">
+    <link href="../css/chartDesempenho.css" rel="stylesheet">
 </head>
 
 <body>  
@@ -183,8 +184,12 @@
               </div>
             </div>  
           </div>
+          <div class="divDesempenho d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-12">
+            <h5>Desempenho</h5>
+            <canvas class="chartDesempenho">
 
-          <h2>Section title</h2>
+            </canvas>
+          </div>
           
         </section>
 
@@ -614,6 +619,7 @@
 
     
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="sidebars.js"></script>
     <script src="../js/sidebarActions.js"></script>
     <script src="../js/adicionaruser.js" type="module"></script>
@@ -627,6 +633,7 @@
     <script src="../js/horaReg.js"></script>
     <script src="../js/userLogado2.js" type="module"></script>
     <script src="../js/logout.js" type="module"></script>
+    <script src="../js/chartDesempenho.js"></script>
 
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
 </body>
