@@ -12,9 +12,10 @@
   vertical-align: -.125em;
   pointer-events: none;
   fill: currentColor;
+  
 }
 
-.dropdown-toggle { outline: 0; }
+.dropdown-toggle { outline: none; }
 
 .nav-flush .nav-link {
   border-radius: 0;

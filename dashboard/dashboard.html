@@ -57,7 +57,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <nav id="sidebarMenu" class="menuLateral col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
         <div class="position-sticky pt-3">
           <ul class="list-unstyled ps-0">
             <li class="mb-1">
@@ -208,21 +208,21 @@
               <div class="bd-example">
               <form class="row g-3">
                 <div class="col-md-2">
-                  <label for="validationServer01" class="form-label">Codigo do Produto</label>
+                  <label for="codProdutoRegVendas" class="form-label">Codigo do Produto</label>
                   <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <input type="text" class="form-control codProdV" id="validationServer01" required>
+                    <span class="input-group-text">@</span>
+                    <input type="text" class="form-control codProdV" id="codProdutoRegVendas" required>
                   </div>
                 </div>
                 <div class="col-md-5">
-                  <label for="validationServer02" class="form-label">Nome do produto</label>
-                  <input type="text" class="form-control nomeProdV" id="validationServer02" required>
+                  <label for="nomeProdutoVendas" class="form-label">Nome do produto</label>
+                  <input type="text" class="form-control nomeProdV" id="nomeProdutoVendas" required>
                 </div>
                 <div class="col-md-3">
-                  <label for="validationServerUsername" class="form-label">Preço</label>
+                  <label for="precoProduto" class="form-label">Preço</label>
                   <div class="input-group">
-                    <input type="text" class="form-control precVenda" id="validationServerUsername" aria-describedby="inputGroupPrepend3" disabled>
-                    <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                    <input type="text" class="form-control precVenda" id="precoProduto" aria-describedby="inputGroupPrepend3" disabled>
+                    <span class="input-group-text">Mts</span>
                   </div>
                 </div>
                 <div class="col-md-2">
@@ -230,29 +230,29 @@
                   <input type="text" class="form-control quantProdV" id="quantProd">
                 </div>
                 <div class="col-md-3">
-                  <label for="validationServerUsername" class="form-label">Valor total</label>
+                  <label for="valorTotalProduto" class="form-label">Valor total</label>
                   <div class="input-group">
-                    <input type="text" class="form-control valorTot" id="validationServerUsername" aria-describedby="inputGroupPrepend3" disabled>
-                    <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                    <input type="text" class="form-control valorTot" id="valorTotalProduto" aria-describedby="inputGroupPrepend3" disabled>
+                    <span class="input-group-text">Mts</span>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <label for="validationServer03" class="form-label">Valor entregue</label>
+                  <label for="valorEntregueProduto" class="form-label">Valor entregue</label>
                   <div class="input-group">
-                    <input type="text" class="form-control valorEntr" id="validationServer03" required>
-                    <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                    <input type="text" class="form-control valorEntr" id="valorEntregueProduto" required>
+                    <span class="input-group-text">Mts</span>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <label for="trocoCliente" class="form-label">Troco</label>
                   <div class="input-group">
                     <input type="text" class="form-control valorTr" id="trocoCliente" aria-describedby="inputGroupPrepend3" disabled>
-                    <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                    <span class="input-group-text">Mts</span>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <label for="horaReg" class="form-label">Hora</label>
-                    <input type="text" class="form-control horaRegVen" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+                  <label for="horaRegVendas" class="form-label">Hora</label>
+                    <input type="text" class="form-control horaRegVen" id="horaRegVendas" aria-describedby="inputGroupPrepend3" disabled>
                 </div>
                 <div class="col-12">
                   <button class="btn btn-primary btnRegVenda" type="submit">Registar Venda</button>
@@ -270,7 +270,7 @@
                 <div class="col-md-6">
                   <label for="codPedido" class="form-label">Codigo do pedido</label>
                   <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                    <span class="input-group-text">@</span>
                     <input type="text" class="form-control codPedido" id="codPedido" required>
                   </div>
                 </div>
@@ -326,14 +326,14 @@
                 <div class="col-md-4">
                   <label for="codMesa" class="form-label">Codigo da mesa</label>
                   <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                    <span class="input-group-text">@</span>
                     <input type="text" class="form-control codMesa" id="codMesa" required>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <label for="estadoPedi" class="form-label">Estado da mesa</label>                
+                  <label for="estadoPediMesas" class="form-label">Estado da mesa</label>                
                   
-                    <select class="form-select form-select" id="estadoPedi" aria-label=".form-select-lg example">
+                    <select class="form-select form-select" id="estadoPediMesas" aria-label=".form-select-lg example">
                       <option selected>Selecione a opção</option>
                       <option value="1">Aberto</option>
                       <option value="2">Cancelado</option>
@@ -420,26 +420,26 @@
               <div class="bd-example">
               <form class="row g-3">
                 <div class="col-md-4">
-                  <label for="validationServer01" class="form-label">Codigo do produto</label>
+                  <label for="codProdutoCadasProdutos" class="form-label">Codigo do produto</label>
                   <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <input type="text" class="form-control codProd" id="validationServer01" required>
+                    <span class="input-group-text">@</span>
+                    <input type="text" class="form-control codProd" id="codProdutoCadasProdutos" required>
                   </div>
                 </div>
                 <div class="col-md-8">
-                  <label for="validationServer02" class="form-label">Nome do produto</label>
-                  <input type="text" class="form-control nomeProd" id="validationServer02" required>
+                  <label for="nomeProdutoCadastro" class="form-label">Nome do produto</label>
+                  <input type="text" class="form-control nomeProd" id="nomeProdutoCadastro" required>
                 </div>
                 <div class="col-md-8">
-                  <label for="validationServerUsername" class="form-label">Preço para venda</label>
+                  <label for="procoVenda" class="form-label">Preço para venda</label>
                   <div class="input-group">
-                    <input type="text" class="form-control precVenda" id="validationServerUsername" aria-describedby="inputGroupPrepend3">
-                    <span class="input-group-text" id="inputGroupPrepend3">Mts</span>
+                    <input type="text" class="form-control precVenda" id="procoVenda" aria-describedby="inputGroupPrepend3">
+                    <span class="input-group-text">Mts</span>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <label for="horaReg" class="form-label">Hora</label>
-                    <input type="text" class="form-control horaRegCadProd" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+                  <label for="horaRegCadProdutos" class="form-label">Hora</label>
+                    <input type="text" class="form-control horaRegCadProd" id="horaRegCadProdutos" aria-describedby="inputGroupPrepend3" disabled>
                 </div>
                 
               </form>
@@ -467,27 +467,27 @@
               <div class="bd-example">
               <form class="row g-3">
                 <div class="col-md-4">
-                  <label for="validationServer01" class="form-label label2">Codigo do produto</label>
+                  <label for="codProdutoEstoque" class="form-label label2">Codigo do produto</label>
                   <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                    <input type="text" class="form-control codProdE" id="validationServer01" required>
+                    <span class="input-group-text">@</span>
+                    <input type="text" class="form-control codProdE" id="codProdutoEstoque" required>
                   </div>
                 </div>
                 <div class="col-md-8">
-                  <label for="validationServer02" class="form-label">Nome do produto</label>
-                  <input type="text" class="form-control nomeProdE" id="validationServer02" disabled>
+                  <label for="nomeprodutoEstoque" class="form-label">Nome do produto</label>
+                  <input type="text" class="form-control nomeProdE" id="nomeprodutoEstoque" disabled>
                 </div>
                 <div class="col-md-4">
-                  <label for="quantProd" class="form-label">Quantidade</label>
-                  <input type="text" class="form-control quantProdE" id="quantProd">
+                  <label for="quantProdEstoque" class="form-label">Quantidade</label>
+                  <input type="text" class="form-control quantProdE" id="quantProdEstoque">
                 </div>
                 <div class="col-md-4">
-                  <label for="horaReg" class="form-label">Hora registrada</label>
-                    <input type="text" class="form-control horaRegA" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+                  <label for="horaRegRegEntradaRegistada" class="form-label">Hora registrada</label>
+                    <input type="text" class="form-control horaRegA" id="horaRegRegEntradaRegistada" aria-describedby="inputGroupPrepend3" disabled>
                 </div>
                 <div class="col-md-4">
-                  <label for="horaReg" class="form-label">Hora actual</label>
-                    <input type="text" class="form-control horaRegEst" id="horaReg" aria-describedby="inputGroupPrepend3" disabled>
+                  <label for="horaRegRegEntradaActual" class="form-label">Hora actual</label>
+                    <input type="text" class="form-control horaRegEst" id="horaRegRegEntradaActual" aria-describedby="inputGroupPrepend3" disabled>
                 </div>
                 <div class="col-4">
                   <button class="btn btn-primary btnAdiProdE" type="submit">Adicionar Produto</button>
@@ -534,27 +534,27 @@
                 <div class="bd-example">
                 <form class="row g-3">
                   <div class="col-md-4">
-                    <label for="validationServer01" class="form-label">Codigo do colaboradores</label>
+                    <label for="codColaboradores" class="form-label">Codigo do colaboradores</label>
                     <div class="input-group has-validation">
-                      <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                      <input type="text" class="form-control codColab" id="validationServer01" required>
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control codColab" id="codColaboradores" required>
                     </div>
                   </div>
                   <div class="col-md-8">
-                    <label for="validationServer02" class="form-label">Nome do colaboradores</label>
-                    <input type="text" class="form-control nomeColab" id="validationServer02" required>
+                    <label for="nomeColaboradores" class="form-label">Nome do colaboradores</label>
+                    <input type="text" class="form-control nomeColab" id="nomeColaboradores" required>
                   </div>
                   <div class="col-md-8">
-                    <label for="validationServer02" class="form-label">Endereço</label>
-                    <input type="address" class="form-control enderColab" id="validationServer02" required>
+                    <label for="enderecoColaboradores" class="form-label">Endereço</label>
+                    <input type="address" class="form-control enderColab" id="enderecoColaboradores" required>
                   </div>
                   <div class="col-md-4">
-                    <label for="validationServer02" class="form-label">Telefone</label>
-                    <input type="tel" class="form-control telColab" id="validationServer02" required>
+                    <label for="telColaboradores" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control telColab" id="telColaboradores" required>
                   </div>
                   <div class="col-md-12">
-                    <label for="validationServer02" class="form-label">E-mail</label>
-                    <input type="email" class="form-control emailColab" id="validationServer02" required>
+                    <label for="mailColaboradores" class="form-label">E-mail</label>
+                    <input type="email" class="form-control emailColab" id="mailColaboradores" required>
                   </div>
                   <div class="col-md-6">
                     <label for="categoria" class="form-label">Categoria</label>
@@ -567,11 +567,11 @@
                     </select>
                   </div>
                   <div class="col-md-6">
-                    <label for="passIni" class="form-label">Senha Inicial</label>
-                      <input type="password" class="form-control passIni passColab" id="passIni" aria-describedby="inputGroupPrepend3">
+                    <label for="Colaboradores" class="form-label">Senha Inicial</label>
+                      <input type="password" class="form-control Colaboradores passColab" id="passIni" aria-describedby="inputGroupPrepend3">
                   </div>
                 </form>
-                  <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="margin: 20px 0px ;">
+                  <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="position: relative; width: 100%; margin: 20px 0px ;">
                     <div class="col-3">
                       <button class="btn btn-primary btnCadasColab" type="submit">Cadastrar Colaborador</button>
                     </div>
@@ -589,8 +589,8 @@
             <div class="" style="margin: 30px 0px">
               <h2 id="sectionVerCol">Ver colaboradores</h2>
     
-              <div>
-                <table class="table table-striped">
+              <div style="position: relative; width: 100%; overflow: scroll;">
+                <table class="table table-striped" style="position: relative; width: 100%; max-width: max-content; overflow: scroll;">
                   <thead>
                   <tr>
                     <th scope="col">#</th>

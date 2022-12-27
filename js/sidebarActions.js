@@ -10,8 +10,8 @@ let btnCaixa = document.querySelector(".btnCaixa")
 let btnProdutos = document.querySelector(".btnProdutos")
 let btnColaboradores = document.querySelector(".btnColaboradores")
 let btnUsuario = document.querySelector(".btnUsuario")
-
-
+var btnSidebar = document.querySelector(".navbar-toggler")
+var menuLateral = document.querySelector(".menuLateral")
 
 btnDashboard.addEventListener("click", () =>{
     if(sectionDashboard.style.display == "none"){
@@ -23,6 +23,15 @@ btnDashboard.addEventListener("click", () =>{
         sectionUsuario.style.display = "none"
     }else{
         //sectionDashboard.style.display = "none"
+    }
+    if(btnSidebar.ariaExpanded == "true"){
+        btnSidebar.ariaExpanded = "false"
+        btnSidebar.classList.add("collapsed")
+        menuLateral.classList.remove("show")
+    }else{
+        btnSidebar.ariaExpanded = "true"
+        btnSidebar.classList.remove("collapsed")
+        menuLateral.classList.add("show")
     }
 })
 
@@ -37,6 +46,16 @@ btnVendas.addEventListener("click", () =>{
     }else{
         //sectionVendas.style.display = "none"
     }
+
+    if(btnSidebar.ariaExpanded == "true"){
+        btnSidebar.ariaExpanded = "false"
+        btnSidebar.classList.add("collapsed")
+        menuLateral.classList.remove("show")
+    }else{
+        btnSidebar.ariaExpanded = "true"
+        btnSidebar.classList.remove("collapsed")
+        menuLateral.classList.add("show")
+    }
 })
 
 /*btnCaixa.addEventListener("click", () =>{
@@ -49,6 +68,16 @@ btnVendas.addEventListener("click", () =>{
         sectionUsuario.style.display = "none"
     }else{
         //sectionCaixa.style.display = "none"
+    }
+
+    if(btnSidebar.ariaExpanded == "true"){
+        btnSidebar.ariaExpanded = "false"
+        btnSidebar.classList.add("collapsed")
+        menuLateral.classList.remove("show")
+    }else{
+        btnSidebar.ariaExpanded = "true"
+        btnSidebar.classList.remove("collapsed")
+        menuLateral.classList.add("show")
     }
 })*/
 
@@ -63,6 +92,16 @@ btnProdutos.addEventListener("click", () =>{
     }else{
         //sectionProdutos.style.display = "none"
     }
+
+    if(btnSidebar.ariaExpanded == "true"){
+        btnSidebar.ariaExpanded = "false"
+        btnSidebar.classList.add("collapsed")
+        menuLateral.classList.remove("show")
+    }else{
+        btnSidebar.ariaExpanded = "true"
+        btnSidebar.classList.remove("collapsed")
+        menuLateral.classList.add("show")
+    }
 })
 
 btnColaboradores.addEventListener("click", () =>{
@@ -76,6 +115,16 @@ btnColaboradores.addEventListener("click", () =>{
     }else{
         //sectionColaboradores.style.display = "none"
     }
+
+    if(btnSidebar.ariaExpanded == "true"){
+        btnSidebar.ariaExpanded = "false"
+        btnSidebar.classList.add("collapsed")
+        menuLateral.classList.remove("show")
+    }else{
+        btnSidebar.ariaExpanded = "true"
+        btnSidebar.classList.remove("collapsed")
+        menuLateral.classList.add("show")
+    }
 })
 
 btnUsuario.addEventListener("click", () =>{
@@ -88,6 +137,16 @@ btnUsuario.addEventListener("click", () =>{
         sectionColaboradores.style.display = "none"
     }else{
         //sectionUsuario.style.display = "none"
+    }
+
+    if(btnSidebar.ariaExpanded == "true"){
+        btnSidebar.ariaExpanded = "false"
+        btnSidebar.classList.add("collapsed")
+        menuLateral.classList.remove("show")
+    }else{
+        btnSidebar.ariaExpanded = "true"
+        btnSidebar.classList.remove("collapsed")
+        menuLateral.classList.add("show")
     }
 })
 
