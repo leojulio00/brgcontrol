@@ -25,14 +25,14 @@ onValue(starCountRef, (snapshot) => {
         const uid = user.email;
 
         if(uid != usuarioMail){
-            window.location.href = "../index.html"
+            window.location.href = "./index.html"
         }else{
-            //window.location.href = "./dashboard.html"
+            window.location.href = "dashboard/dashboard.html"
         }
       } else {
         // User is signed out
         // ...
-        window.location.href = "../index.html"
+        //window.location.href = "./index.html"
       }
     }); 
 });

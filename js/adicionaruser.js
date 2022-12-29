@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebas
 import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 
-var codColab = document.querySelector(".codColab")
+var usuarioColab = document.querySelector(".usuarioColab")
 var nomeColab = document.querySelector(".nomeColab")
 var enderColab = document.querySelector(".enderColab")
 var telColab = document.querySelector(".telColab")
@@ -22,16 +22,16 @@ const auth = getAuth();
 
 
 btnCadasColab.addEventListener("click", ()=>{
-function writeUserData(codColab, nomeColab, enderColab, telColab, emailColab, catgColab) {
-  const db = getDatabase();
-  set(ref(db, 'users/' + codColab), {
-    nomeColab: nomeColab,
-    enderColab: enderColab,
-    telColab: telColab,
-    emailColab: emailColab,
-    catgColab: catgColab
-  });
-}
+  function writeUserData(usuarioColab, nomeColab, enderColab, telColab, emailColab, catgColab) {
+    const db = getDatabase();
+    set(ref(db, 'users/' + usuarioColab), {
+      nomeColab: nomeColab,
+      enderColab: enderColab,
+      telColab: telColab,
+      emailColab: emailColab,
+      catgColab: catgColab
+    });
+  }
 
 
     createUserWithEmailAndPassword(auth, emailColab.value, passColab.value)
@@ -39,21 +39,26 @@ function writeUserData(codColab, nomeColab, enderColab, telColab, emailColab, ca
     // Signed in 
     const user = userCredential.user;
 
-    writeUserData(codColab.value, nomeColab.value, enderColab.value, telColab.value, emailColab.value, catgColab.value)
-
-    alert("usuario criado com sucesso")
-      codColab.value = ""
-      nomeColab.value = ""
-      enderColab.value = ""
-      telColab.value = ""
-      emailColab.value = ""
-      catgColab.value = ""
+    
+      
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     alert("erro: " + errorMessage)
   });
+
+
+  writeUserData(usuarioColab.value, nomeColab.value, enderColab.value, telColab.value, emailColab.value, catgColab.value)
+
+  alert("usuario criado com sucesso")
+
+  usuarioColab.value = ""
+  nomeColab.value = ""
+  enderColab.value = ""
+  telColab.value = ""
+  emailColab.value = ""
+  catgColab.value = ""
 
   /*createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {

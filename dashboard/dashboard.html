@@ -537,7 +537,7 @@
                     <label for="codColaboradores" class="form-label">Codigo do colaboradores</label>
                     <div class="input-group has-validation">
                       <span class="input-group-text">@</span>
-                      <input type="text" class="form-control codColab" id="codColaboradores" required>
+                      <input type="text" class="form-control usuarioColab" id="codColaboradores" required>
                     </div>
                   </div>
                   <div class="col-md-8">
@@ -573,13 +573,13 @@
                 </form>
                   <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="position: relative; width: 100%; margin: 20px 0px ;">
                     <div class="col-3">
-                      <button class="btn btn-primary btnCadasColab" type="submit">Cadastrar Colaborador</button>
+                      <button class="btn btn-primary btnCadasColab" type="button">Cadastrar Colaborador</button>
                     </div>
                     <div class="col-3">
-                      <button class="btn btn-primary" type="submit">Alterar Colaborador</button>
+                      <button class="btn btn-primary" type="button">Alterar Colaborador</button>
                     </div>
                     <div class="col-3">
-                      <button class="btn btn-primary" type="submit">Apagar Colaborador</button>
+                      <button class="btn btn-primary" type="button">Apagar Colaborador</button>
                     </div>
                   </div>
                 </div>
@@ -619,29 +619,29 @@
               <h2>Dados do usuário</h2>
             </div>
             <div class="listaDadosUser">
-              <div class="userCod">
+              <div>
                 <strong>Código: </strong>
-                <label for="">Leonildo Julio</label>
+                <label class="userCod" for="">Leonildo Julio</label>
               </div>
-              <div class="userNome">
+              <div>
                 <strong>Nome: </strong>
-                <label for="">Leonildo Julio</label>
+                <label class="userNome" for="">Leonildo Julio</label>
               </div>
-              <div class="userCategoria">
+              <div>
                 <strong>Categoria: </strong>
-                <label for="">Leonildo Julio</label>
+                <label class="userCategoria" for="">Leonildo Julio</label>
               </div>
-              <div class="userEnder">
+              <div>
                 <strong>Endereço: </strong>
-                <label for="">Leonildo Julio</label>
+                <label class="userEnder" for="">Leonildo Julio</label>
               </div>
-              <div class="userTelefone">
+              <div>
                 <strong>Telefone: </strong>
-                <label for="">Leonildo Julio</label>
+                <label class="userTelefone" for="">Leonildo Julio</label>
               </div>
-              <div class="userMail">
+              <div>
                 <strong>E-mail: </strong>
-                <label for="">Leonildo Julio</label>
+                <label class="userMail" for="">Leonildo Julio</label>
               </div>
 
             </div>
@@ -690,10 +690,11 @@
     <script src="../js/regVenda.js" type="module"></script>
     <script src="../js/verProd.js" type="module"></script>
     <script src="../js/adicionarpedido.js" type="module"></script>
+    <script src="../js/dadosUser.js" type="module"></script>
     <script src="../js/verPedidos.js" type="module"></script>
     <script src="../js/verColab.js" type="module"></script>
     <script src="../js/horaReg.js"></script>
-    <script src="../js/userLogado2.js" type="module"></script>
+    <script src="../js/userLogado.js" type="module"></script>
     <script src="../js/logout.js" type="module"></script>
     <script src="../js/chartDesempenho.js"></script>
 
