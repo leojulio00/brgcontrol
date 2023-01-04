@@ -16,12 +16,22 @@ function addItemToTable(nomeProd, precVenda, tipoMoeda){
     let produQuantidade = document.createElement("h5")
     let produPreco = document.createElement("h1")
 
+    divCard.addEventListener("click", ()=>{
+      produQuantidade.innerHTML = "Qtd " + quantProduto++
+
+      if(divCard.classList.contains("cardRegVendasSelecionado")){
+        //
+      }else{
+        divCard.classList.add("cardRegVendasSelecionado")
+      }
+    })
+
     produNome.innerHTML = nomeProd
-    produQuantidade.innerHTML = "Qtd" + quantProduto
     produPreco.innerHTML = precVenda + " " + tipoMoeda
 
     divCol.classList.add("col")
     divCard.classList.add("card")
+    divCard.classList.add("cardRegVendas")
     divCardBody.classList.add("card-body")
     produNome.classList.add("card-title")
     produPreco.classList.add("card-title")
