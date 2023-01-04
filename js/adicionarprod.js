@@ -1,18 +1,23 @@
 import { firebaseConfig} from "./firebaseConfig.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getDatabase, set, ref, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
-var codProd = document.querySelector(".codProd")
+
 var nomeProd = document.querySelector(".nomeProd")
-var precVenda = document.querySelector(".precVenda")
+var precVendaR = document.querySelector(".precVendaR")
+var precCompra = document.querySelector(".precCompra")
+var lucroVenda = document.querySelector(".lucroVenda")
+var dataValidade = document.querySelector(".dataValidade")
 var horaReg = document.querySelector(".horaRegCadProd")
 var btnRegProd = document.querySelector(".btnRegProd")
 var btnAlterProd = document.querySelector(".btnAlterProd")
 var btnApagProd = document.querySelector(".btnApagProd")
+var tipoMoeda = ""
+var valorLucroVenda = 0
 
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+const db = getDatabase(app);
 
-codProd.addEventListener("keyup", ()=>{
+/*codProd.addEventListener("keyup", ()=>{
   const starCountRef = ref(database, 'produtos/' + codProd.value);
 
   onValue(starCountRef, (snapshot) => {
@@ -28,29 +33,53 @@ codProd.addEventListener("keyup", ()=>{
         precVenda.placeholder = "Não existe, digite um novo dado"
       }else{
         precVenda.placeholder = data.precVenda
-      }*/
+      }*
       //horaRegA.value = data.horaReg
       nomeProd.placeholder = data.nomeProd
       precVenda.placeholder = data.precVenda
   });
+})*/
+
+precVendaR.addEventListener("keyup", ()=>{
+  //console.log("kdks")
+
+  valorLucroVenda = Math.abs(precCompra.value - precVendaR.value)
+
+  lucroVenda.value = valorLucroVenda
 })
 
 btnRegProd.addEventListener("click", ()=>{
-function adicionarProd(codProd, nomeProd, precVenda, horaReg,) {
-  const db = getDatabase();
-  set(ref(db, 'produtos/' + codProd), {
-    nomeProd: nomeProd,
-    precVenda: precVenda,
-    horaReg: horaReg
+  const tipoMoedaRef = ref(db, 'tipoMoeda/');
+  onValue(tipoMoedaRef, (snapshot) => {
+    const data = snapshot.val();
+    tipoMoeda = data.tipoMoeda
+
+    function adicionarProd(nomeProd, precVenda, precCompra, lucroProd, dataValidade, tipoMoeda, horaReg,) {
+      const db = getDatabase();
+      set(ref(db, 'produtos/todosProdutos/' + nomeProd), {
+        nomeProd: nomeProd,
+        precVenda: precVenda,
+        precCompra: precCompra,
+        lucroProd: lucroProd,
+        dataValidade: dataValidade,
+        tipoMoeda: tipoMoeda,
+        horaReg: horaReg
+      });
+    }
+    
+    if(nomeProd != "" && precVendaR != "" && precCompra != ""){
+      adicionarProd(nomeProd.value, precVendaR.value, precCompra.value, lucroVenda.value, dataValidade.value, tipoMoeda, horaReg.value)
+    
+      alert("Produto cadastrado com sucesso")
+      nomeProd.value = ""
+      precVendaR.value = ""
+      precCompra.value = ""
+      lucroVenda.value = ""
+      dataValidade.value = ""
+    }else{
+      alert("Preencha todos os campos necessarios por favor")
+    }
   });
-}
-
-adicionarProd(codProd.value, nomeProd.value, precVenda.value, horaReg.value)
-
-    alert("Produto cadastrado com sucesso")
-    codProd.value = ""
-    nomeProd.value = ""
-    precVenda.value = ""
 })
 
 btnAlterProd.addEventListener("click", ()=>{

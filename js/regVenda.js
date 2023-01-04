@@ -1,5 +1,67 @@
 import { firebaseConfig} from "./firebaseConfig.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+import { getDatabase, ref, child, onValue, get } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+
+var quantProduto = 0
+var produtosAdicio = document.querySelector(".produtosAdicio")
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+function addItemToTable(nomeProd, precVenda, tipoMoeda){
+    let divCol = document.createElement("div")
+    let divCard = document.createElement("div")
+    let divCardBody = document.createElement("div")
+    let produNome = document.createElement("h3")
+    let produQuantidade = document.createElement("h5")
+    let produPreco = document.createElement("h1")
+
+    produNome.innerHTML = nomeProd
+    produQuantidade.innerHTML = "Qtd" + quantProduto
+    produPreco.innerHTML = precVenda + " " + tipoMoeda
+
+    divCol.classList.add("col")
+    divCard.classList.add("card")
+    divCardBody.classList.add("card-body")
+    produNome.classList.add("card-title")
+    produPreco.classList.add("card-title")
+    produQuantidade.classList.add("card-text")
+
+    divCol.appendChild(divCard)  
+    divCard.appendChild(divCardBody) 
+    divCardBody.appendChild(produNome)  
+    divCardBody.appendChild(produPreco)
+    divCardBody.appendChild(produQuantidade)  
+
+    produtosAdicio.appendChild(divCol)
+}
+
+function addAllItemsToTable(produtos){
+  produtosAdicio.innerHTML = ""
+    produtos.forEach(element => {
+        addItemToTable(element.nomeProd, element.precVenda, element.tipoMoeda)
+    });
+}
+
+function GetAllDataRealtime(){
+    const dbRef = ref(db, "produtos/todosProdutos")
+
+    onValue(dbRef, (snapshot) =>{
+        var todosProdutos = []
+
+        snapshot.forEach(childSnapshot => {
+          todosProdutos.push(childSnapshot.val())
+        })
+
+        addAllItemsToTable(todosProdutos)
+    })
+}
+
+window.onload = GetAllDataRealtime()
+
+
+/*import { firebaseConfig} from "./firebaseConfig.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getDatabase, set, ref, onValue } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
 
 
@@ -35,7 +97,7 @@ codProdV.addEventListener("keyup", ()=>{
         precVenda.placeholder = "Não existe, digite um novo dado"
       }else{
         precVenda.placeholder = data.precVenda
-      }*/
+      }*
       //horaRegA.value = data.horaReg
       nomeProdV.value = data.nomeProd
       precVenda.value = data.precVenda
@@ -67,7 +129,7 @@ btnRegVenda.addEventListener("click", ()=>{
     window.location.href = "./dashboard.html?#sectionReg"
   }else{
     /*var valorTroco = Math.abs(valorTot.value - valorEntr.value)
-    valorTr.value = valorTroco*/
+    valorTr.value = valorTroco*
 
     function adicionarProd(codProdV, nomeProdV, precVenda, quantProdV, valorTot, valorEntr, valorTr, horaRegVen) {
       const db = getDatabase();
@@ -103,7 +165,7 @@ btnRegVenda.addEventListener("click", ()=>{
 
 
 
-/*btnAlterProd.addEventListener("click", ()=>{
+*btnAlterProd.addEventListener("click", ()=>{
   function adicionarProd(codProd, nomeProd, precVenda, horaReg,) {
     const db = getDatabase();
     set(ref(db, 'produtos/' + codProd), {

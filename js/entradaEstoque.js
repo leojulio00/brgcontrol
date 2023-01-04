@@ -13,7 +13,7 @@ var btnAdiProdE = document.querySelector(".btnAdiProdE")
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
-codProdE.addEventListener("keyup", ()=>{
+nomeProdE.addEventListener("keyup", ()=>{
     const starCountRef = ref(db, 'produtos/' + codProdE.value);
 
     onValue(starCountRef, (snapshot) => {

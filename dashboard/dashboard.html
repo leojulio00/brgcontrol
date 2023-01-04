@@ -256,6 +256,9 @@
                 </div>
                 <div class="col-12">
                   <button class="btn btn-primary btnRegVenda" type="submit">Registar Venda</button>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">
+                    Vertically centered scrollable modal
+                  </button>
                 </div>
               </form>
               </div>
@@ -419,21 +422,39 @@
             <div>
               <div class="bd-example">
               <form class="row g-3">
-                <div class="col-md-4">
-                  <label for="codProdutoCadasProdutos" class="form-label">Codigo do produto</label>
+                <div class="col-md-12">
+                  <label for="nomeProdutoCadastro" class="form-label">Nome do produto</label>
                   <div class="input-group has-validation">
                     <span class="input-group-text">@</span>
-                    <input type="text" class="form-control codProd" id="codProdutoCadasProdutos" required>
+                    <input type="text" class="form-control nomeProd" id="nomeProdutoCadastro" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="precoCompraProduto" class="form-label">Preço de compra /uni.</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control precCompra" id="precoCompraProduto" required>
+                    <span class="input-group-text">Mts</span>
+                  </div>
+                  
+                </div>
+                <div class="col-md-4">
+                  <label for="precoVendaProduto" class="form-label">Preço para venda /uni.</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control precVendaR" id="precoVendaProduto" aria-describedby="inputGroupPrepend3" required>
+                    <span class="input-group-text">Mts</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="lucroVendaProduto" class="form-label">Lucro da venda /uni.</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control lucroVenda" id="lucroVendaProduto" aria-describedby="inputGroupPrepend3" disabled>
+                    <span class="input-group-text">Mts</span>
                   </div>
                 </div>
                 <div class="col-md-8">
-                  <label for="nomeProdutoCadastro" class="form-label">Nome do produto</label>
-                  <input type="text" class="form-control nomeProd" id="nomeProdutoCadastro" required>
-                </div>
-                <div class="col-md-8">
-                  <label for="procoVenda" class="form-label">Preço para venda</label>
+                  <label for="lucroVendaProduto" class="form-label">Data de validade</label>
                   <div class="input-group">
-                    <input type="text" class="form-control precVenda" id="procoVenda" aria-describedby="inputGroupPrepend3">
+                    <input type="text" class="form-control dataValidade" id="lucroVendaProduto" aria-describedby="inputGroupPrepend3" placeholder="Ex.: 30/12/2000">
                     <span class="input-group-text">Mts</span>
                   </div>
                 </div>
@@ -466,24 +487,16 @@
             <div>
               <div class="bd-example">
               <form class="row g-3">
-                <div class="col-md-4">
-                  <label for="codProdutoEstoque" class="form-label label2">Codigo do produto</label>
+                <div class="col-md-12">
+                  <label for="nomeProdutoEstoque" class="form-label label2">Nome do produto</label>
                   <div class="input-group has-validation">
                     <span class="input-group-text">@</span>
-                    <input type="text" class="form-control codProdE" id="codProdutoEstoque" required>
+                    <input type="text" class="form-control nomeProdE" id="codProdutoEstoque" required>
                   </div>
                 </div>
                 <div class="col-md-8">
-                  <label for="nomeprodutoEstoque" class="form-label">Nome do produto</label>
-                  <input type="text" class="form-control nomeProdE" id="nomeprodutoEstoque" disabled>
-                </div>
-                <div class="col-md-4">
                   <label for="quantProdEstoque" class="form-label">Quantidade</label>
                   <input type="text" class="form-control quantProdE" id="quantProdEstoque">
-                </div>
-                <div class="col-md-4">
-                  <label for="horaRegRegEntradaRegistada" class="form-label">Hora registrada</label>
-                    <input type="text" class="form-control horaRegA" id="horaRegRegEntradaRegistada" aria-describedby="inputGroupPrepend3" disabled>
                 </div>
                 <div class="col-md-4">
                   <label for="horaRegRegEntradaActual" class="form-label">Hora actual</label>
@@ -673,6 +686,48 @@
             </div>
           </div>
 
+        </section>
+
+        <section class="modalSection">
+          <div class="registarVenda">
+            <!--<div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+              <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title h4" id="exampleModalFullscreenLabel">Full screen modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>-->
+            <div class="modal fade" id="modalRegistarVendas" tabindex="-1" aria-labelledby="tituloModalRegVendas" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="tituloModalRegVendas">Registar Vendas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  
+                  <div class="modal-body">
+                    <div class="produtosAdicio row  row-cols-1 row-cols-md-2 g-4">
+
+                    </div>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
       </main>
