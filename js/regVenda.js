@@ -1,8 +1,8 @@
 import { firebaseConfig} from "./firebaseConfig.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-import { getDatabase, ref, child, onValue, get } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+import { getDatabase, ref, child, onValue, set } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
 
-var quantProduto = 0
+
 var produtosAdicio = document.querySelector(".produtosAdicio")
 
 const app = initializeApp(firebaseConfig);
@@ -15,9 +15,20 @@ function addItemToTable(nomeProd, precVenda, tipoMoeda){
     let produNome = document.createElement("h3")
     let produQuantidade = document.createElement("h5")
     let produPreco = document.createElement("h1")
+    let quantProduto = 0
+    //produQuantidade.innerHTML = "Qtd " + quantProduto
+
+
+    produNome.innerHTML = nomeProd
+    produPreco.innerHTML = precVenda + " " + tipoMoeda
 
     divCard.addEventListener("click", ()=>{
       produQuantidade.innerHTML = "Qtd " + quantProduto++
+
+      const db = getDatabase();
+      set(ref(db, 'produtos/selecProdutos/' + nomeProd), {
+        quantidadeProd: quantProduto - 1
+      });
 
       if(divCard.classList.contains("cardRegVendasSelecionado")){
         //
@@ -25,9 +36,6 @@ function addItemToTable(nomeProd, precVenda, tipoMoeda){
         divCard.classList.add("cardRegVendasSelecionado")
       }
     })
-
-    produNome.innerHTML = nomeProd
-    produPreco.innerHTML = precVenda + " " + tipoMoeda
 
     divCol.classList.add("col")
     divCard.classList.add("card")
