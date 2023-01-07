@@ -2,13 +2,17 @@ import { firebaseConfig} from "./firebaseConfig.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getDatabase, ref, remove, onValue, set } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
 
-
+var modalRegistarVendas = document.querySelector(".modalRegistarVendas")
 var produtosAdicio = document.querySelector(".produtosAdicio")
 var metodosPagamentos = document.querySelector(".metodosPagamentos")
+var finalizarPreVenda = document.querySelector(".finalizarPreVenda")
+var mesasDisponiveis = document.querySelector(".mesasDisponiveis")
 var divSelecProdutos = document.querySelector(".selecionarProdutos")
 var divSelecMetodos = document.querySelector(".selecionarMPagamento")
+var divBtnProximo = document.querySelector(".divBtnProximo")
+var btnAdicionarAMesa = document.querySelector(".btnAdicionarAMesa")
+var btnFinalizarVenda = document.querySelector(".btnFinalizarVenda")
 var botaoProximo = document.querySelector(".btnProximoRegVenda")
-var botaoProximoModalMesas = document.querySelector(".btnProximoRegVendaModalMesas")
 var botaoCancelar = document.querySelector(".btnCancelar")
 
 const app = initializeApp(firebaseConfig);
@@ -96,7 +100,7 @@ function addItemToTableMetodosP(nomeMetodo){
 
   nomeMetodoTxt.innerHTML = nomeMetodo
 
-  divCard.addEventListener("click", ()=>{
+  divCard.addEventListener("click", async ()=>{
     const db = getDatabase();
     set(ref(db, 'metodosPagamento/metodoSelecionado/' + nomeMetodo), {
       nomeMetodo: nomeMetodo
@@ -107,6 +111,31 @@ function addItemToTableMetodosP(nomeMetodo){
     }else{
       divCard.classList.add("cardRegVendasSelecionado")
     }
+
+
+
+    const dbRef = ref(db, "metodosPagamento/metodoSelecionado")
+    var dados
+
+    await onValue(dbRef, (snapshot)=>{
+      const data = snapshot.val()    
+      dados = data
+    })
+
+    async function passarPTelaFinalizarPreVenda(){
+      console.log(dados)
+
+      if(dados == null){
+        alert("Selecione um produto")
+      }else{
+        divSelecMetodos.style.display = "none"
+        finalizarPreVenda.style.display = "block"
+
+        divBtnProximo.innerHTML = "" 
+      }
+    }
+
+    passarPTelaFinalizarPreVenda()
   })
 
   divCol.classList.add("col")
@@ -147,6 +176,19 @@ function GetAllDataRealtimeMetodosP(){
 
 window.onload = GetAllDataRealtimeMetodosP()
 
+
+btnAdicionarAMesa.addEventListener("click", ()=>{
+  mesasDisponiveis.style.display = "block"
+  alert("Esta em block")
+})
+
+btnFinalizarVenda.addEventListener("click", ()=>{
+  modalRegistarVendas.style.display = "none"
+  window.onload = GetAllDataRealtime()
+  window.onload = GetAllDataRealtimeMetodosP()
+})
+
+
 botaoProximo.addEventListener("click", async ()=>{
   const dbRef = ref(db, "produtos/selecProdutos")
   var dados
@@ -159,15 +201,16 @@ botaoProximo.addEventListener("click", async ()=>{
   async function passarPTelaMetodos(){
     console.log(dados)
 
-  if(dados == null){
-    alert("Selecione um produto")
-  }else{
-    divSelecProdutos.style.display = "none"
-    divSelecMetodos.style.display = "block"
+    if(dados == null){
+      alert("Selecione um produto")
+    }else{
+      divSelecProdutos.style.display = "none"
+      divSelecMetodos.style.display = "block"
 
-    botaoProximo.classList.remove("btnProximoRegVenda")
-    botaoProximo.classList.add("btnProximoRegVendaModalMesas")
-  }
+      botaoProximo.classList.remove("btnProximoRegVenda")
+      botaoProximo.classList.add("btnProximoRegVendaModalMesas")
+      divBtnProximo.innerHTML = "" 
+    }
   }
 
   passarPTelaMetodos()

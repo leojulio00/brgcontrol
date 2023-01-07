@@ -3,7 +3,8 @@
 }
 
 .btn-primary:hover{
-    background-color: #100126;
+    background-color: #F2F2F2;
+    color: black;
 }
 
 .btn-secondary{

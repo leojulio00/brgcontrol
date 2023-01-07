@@ -707,7 +707,7 @@
                 </div>
               </div>
             </div>-->
-            <div class="modal fade" id="modalRegistarVendas" tabindex="-1" aria-labelledby="tituloModalRegVendas" aria-hidden="true">
+            <div class="modal fade modalRegistarVendas" id="modalRegistarVendas" tabindex="-1" aria-labelledby="tituloModalRegVendas" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -734,13 +734,13 @@
                       <div class="metodosPagamentos row  row-cols-1 row-cols-md-1 g-4" style="margin-top: 20px">
                         <div class="col mx-auto">
                           <div class="row">
-                            <button type="button" class="btn btn-secondary btn-sm p-2">Adicionar a uma mesa</button>
+                            <button type="button" class="btn btn-secondary btn-sm p-2 btnAdicionarAMesa">Adicionar a uma mesa</button>
                           </div>
                           <div class="row " style="margin: 10px 0px">
                             <h4>Ou</h4>
                           </div>
                           <div class="row">
-                            <button type="button" class="btn btn-primary btn-sm p-2">Finalizar venda</button>
+                            <button type="button" class="btn btn-primary btn-sm p-2 btnFinalizarVenda">Finalizar venda</button>
                           </div>
                         </div>
                         <div class="col mesasDisponiveis" style="display: none;">
@@ -751,8 +751,14 @@
                   </div>
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btnCancelar" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary btnProximoRegVenda">Próximo</button>
+                    <div class="btnModalRegvendas" style="display: flex; flex-direction: row; flex-wrap: none;">
+                      <div class="divBtnCancelar" style="margin: 0px 20px 0px 0px;">
+                        <button type="button" class="btn btn-secondary btnCancelar" data-bs-dismiss="modal">Cancelar</button>
+                      </div>
+                      <div class="divBtnProximo">
+                        <button type="button" class="btn btn-primary btnProximoRegVenda">Próximo</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
