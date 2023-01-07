@@ -712,18 +712,47 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="tituloModalRegVendas">Registar Vendas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!--<button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>-->
                   </div>
                   
                   <div class="modal-body">
-                    <div class="produtosAdicio row  row-cols-1 row-cols-md-2 g-4">
+                    <div class="selecionarProdutos">
+                      <p>Selecione o produto e a sua quantidade desejada</p>
+                      <div class="produtosAdicio row  row-cols-1 row-cols-md-2 g-4">
 
+                      </div>
+                    </div>
+
+                    <div class="selecionarMPagamento" style="display: none;">
+                      <p>Selecione o método de pagamento desejado</p>
+                      <div class="metodosPagamentos row  row-cols-1 row-cols-md-2 g-4">
+
+                      </div>
+                    </div>
+
+                    <div class="finalizarPreVenda" style="display: none;">
+                      <div class="metodosPagamentos row  row-cols-1 row-cols-md-1 g-4" style="margin-top: 20px">
+                        <div class="col mx-auto">
+                          <div class="row">
+                            <button type="button" class="btn btn-secondary btn-sm p-2">Adicionar a uma mesa</button>
+                          </div>
+                          <div class="row " style="margin: 10px 0px">
+                            <h4>Ou</h4>
+                          </div>
+                          <div class="row">
+                            <button type="button" class="btn btn-primary btn-sm p-2">Finalizar venda</button>
+                          </div>
+                        </div>
+                        <div class="col mesasDisponiveis" style="display: none;">
+
+                        </div>
+                      </div>
                     </div>
                   </div>
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary btnCancelar" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary btnProximoRegVenda">Próximo</button>
                   </div>
                 </div>
               </div>

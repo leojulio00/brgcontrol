@@ -1,3 +1,16 @@
 .btn-primary{
     background-color: #423DCC;
 }
+
+.btn-primary:hover{
+    background-color: #100126;
+}
+
+.btn-secondary{
+    background-color: #100126;
+}
+
+.btn-secondary:hover{
+    background-color: #F2F2F2;
+    color: black;
+}

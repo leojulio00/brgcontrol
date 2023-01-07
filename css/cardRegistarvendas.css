@@ -3,6 +3,11 @@
     color: white;
 }
 
+.cardMetodospagamento:hover{
+    background: #423DCC;
+    color: white;
+}
+
 .cardRegVendasSelecionado{
     background: #423DCC;
     color: white;

@@ -1,9 +1,15 @@
 import { firebaseConfig} from "./firebaseConfig.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-import { getDatabase, ref, child, onValue, set } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+import { getDatabase, ref, remove, onValue, set } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
 
 
 var produtosAdicio = document.querySelector(".produtosAdicio")
+var metodosPagamentos = document.querySelector(".metodosPagamentos")
+var divSelecProdutos = document.querySelector(".selecionarProdutos")
+var divSelecMetodos = document.querySelector(".selecionarMPagamento")
+var botaoProximo = document.querySelector(".btnProximoRegVenda")
+var botaoProximoModalMesas = document.querySelector(".btnProximoRegVendaModalMesas")
+var botaoCancelar = document.querySelector(".btnCancelar")
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -42,8 +48,11 @@ function addItemToTable(nomeProd, precVenda, tipoMoeda){
     divCard.classList.add("cardRegVendas")
     divCardBody.classList.add("card-body")
     produNome.classList.add("card-title")
+    produNome.style.fontSize = "18px"
     produPreco.classList.add("card-title")
+    produPreco.style.fontSize = "26px"
     produQuantidade.classList.add("card-text")
+    produQuantidade.style.fontSize = "16px"
 
     divCol.appendChild(divCard)  
     divCard.appendChild(divCardBody) 
@@ -76,6 +85,108 @@ function GetAllDataRealtime(){
 }
 
 window.onload = GetAllDataRealtime()
+
+
+
+function addItemToTableMetodosP(nomeMetodo){
+  let divCol = document.createElement("div")
+  let divCard = document.createElement("div")
+  let divCardBody = document.createElement("div")
+  let nomeMetodoTxt = document.createElement("h1")
+
+  nomeMetodoTxt.innerHTML = nomeMetodo
+
+  divCard.addEventListener("click", ()=>{
+    const db = getDatabase();
+    set(ref(db, 'metodosPagamento/metodoSelecionado/' + nomeMetodo), {
+      nomeMetodo: nomeMetodo
+    });
+
+    if(divCard.classList.contains("cardRegVendasSelecionado")){
+      //
+    }else{
+      divCard.classList.add("cardRegVendasSelecionado")
+    }
+  })
+
+  divCol.classList.add("col")
+  divCard.classList.add("card")
+  divCard.classList.add("cardMetodospagamento")
+  divCardBody.classList.add("card-body")
+  nomeMetodoTxt.classList.add("card-title")
+  nomeMetodoTxt.style.fontSize = "22px"
+
+  divCol.appendChild(divCard)  
+  divCard.appendChild(divCardBody) 
+  divCardBody.appendChild(nomeMetodoTxt)  
+ 
+
+  metodosPagamentos.appendChild(divCol)
+}
+
+function addAllItemsToTableMetodosP(metodos){
+  metodosPagamentos.innerHTML = ""
+metodos.forEach(element => {
+  addItemToTableMetodosP(element.nomeMetodo)
+  });
+}
+
+function GetAllDataRealtimeMetodosP(){
+  const dbRef = ref(db, "metodosPagamento/todosMetodos")
+
+  onValue(dbRef, (snapshot) =>{
+      var todosMetodos = []
+
+      snapshot.forEach(childSnapshot => {
+        todosMetodos.push(childSnapshot.val())
+      })
+
+      addAllItemsToTableMetodosP(todosMetodos)
+  })
+}
+
+window.onload = GetAllDataRealtimeMetodosP()
+
+botaoProximo.addEventListener("click", async ()=>{
+  const dbRef = ref(db, "produtos/selecProdutos")
+  var dados
+
+  await onValue(dbRef, (snapshot)=>{
+    const data = snapshot.val()    
+    dados = data
+  })
+
+  async function passarPTelaMetodos(){
+    console.log(dados)
+
+  if(dados == null){
+    alert("Selecione um produto")
+  }else{
+    divSelecProdutos.style.display = "none"
+    divSelecMetodos.style.display = "block"
+
+    botaoProximo.classList.remove("btnProximoRegVenda")
+    botaoProximo.classList.add("btnProximoRegVendaModalMesas")
+  }
+  }
+
+  passarPTelaMetodos()
+  
+})
+
+botaoCancelar.addEventListener("click", ()=>{
+  const dbRefProdSelect = ref(db, "produtos/selecProdutos")
+  const dbRefMethSelect = ref(db, "metodosPagamento/metodoSelecionado")
+
+  remove(dbRefProdSelect)
+  remove(dbRefMethSelect)
+
+  window.onload = GetAllDataRealtime()
+  window.onload = GetAllDataRealtimeMetodosP()
+
+  divSelecProdutos.style.display = "block"
+  divSelecMetodos.style.display = "none"
+})
 
 
 /*import { firebaseConfig} from "./firebaseConfig.js";
