@@ -183,7 +183,9 @@ btnAdicionarAMesa.addEventListener("click", ()=>{
 })
 
 btnFinalizarVenda.addEventListener("click", ()=>{
-  modalRegistarVendas.style.display = "none"
+  //modalRegistarVendas.classList.remove("show")
+  //modalRegistarVendas.ariaHidden = "true"
+  //modalRegistarVendas.style.display = "none"
   window.onload = GetAllDataRealtime()
   window.onload = GetAllDataRealtimeMetodosP()
 })
