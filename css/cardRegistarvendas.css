@@ -12,3 +12,10 @@
     background: #423DCC;
     color: white;
 }
+
+.posicaoFlex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

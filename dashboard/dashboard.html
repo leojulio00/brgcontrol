@@ -203,65 +203,117 @@
           </div>
 
           <div class="registarVendas">
-            <h2 id="sectionReg">Registar Vendas</h2>
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+              <h2 id="sectionReg">Registar Vendas</h2>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">
+                Adicionar produtos para venda 
+              </button>
+            </div>
 
             <div>
               <div class="bd-example">
-              <form class="row g-3">
-                <div class="col-md-2">
-                  <label for="codProdutoRegVendas" class="form-label">Codigo do Produto</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control codProdV" id="codProdutoRegVendas" required>
+                <!--<form class="row g-3">
+                  <div class="col-md-2">
+                    <label for="codProdutoRegVendas" class="form-label">Codigo do Produto</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control codProdV" id="codProdutoRegVendas" required>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <label for="nomeProdutoVendas" class="form-label">Nome do produto</label>
+                    <input type="text" class="form-control nomeProdV" id="nomeProdutoVendas" required>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="precoProduto" class="form-label">Preço</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control precVenda" id="precoProduto" aria-describedby="inputGroupPrepend3" disabled>
+                      <span class="input-group-text">Mts</span>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="quantProd" class="form-label">Quantidade</label>
+                    <input type="text" class="form-control quantProdV" id="quantProd">
+                  </div>
+                  <div class="col-md-3">
+                    <label for="valorTotalProduto" class="form-label">Valor total</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control valorTot" id="valorTotalProduto" aria-describedby="inputGroupPrepend3" disabled>
+                      <span class="input-group-text">Mts</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="valorEntregueProduto" class="form-label">Valor entregue</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control valorEntr" id="valorEntregueProduto" required>
+                      <span class="input-group-text">Mts</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="trocoCliente" class="form-label">Troco</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control valorTr" id="trocoCliente" aria-describedby="inputGroupPrepend3" disabled>
+                      <span class="input-group-text">Mts</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="horaRegVendas" class="form-label">Hora</label>
+                      <input type="text" class="form-control horaRegVen" id="horaRegVendas" aria-describedby="inputGroupPrepend3" disabled>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary btnRegVenda" type="submit">Registar Venda</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">
+                      Vertically centered scrollable modal
+                    </button>
+                  </div>
+                </form>-->
+                
+                <h5>Confirme o pedido</h5>
+                <div style="margin: 20px 0px;">
+                  <p>Método de pagamento escolhido</p>
+                  <div class="metodoPagamentoEscolhido row  row-cols-1 row-cols-md-1 g-4">
+                    <div class="col">
+                      <div class="card cardRegVendasSelecionado">
+                        <div class="card-body">
+                          Nenhum método Escolhido
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-5">
-                  <label for="nomeProdutoVendas" class="form-label">Nome do produto</label>
-                  <input type="text" class="form-control nomeProdV" id="nomeProdutoVendas" required>
-                </div>
-                <div class="col-md-3">
-                  <label for="precoProduto" class="form-label">Preço</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control precVenda" id="precoProduto" aria-describedby="inputGroupPrepend3" disabled>
-                    <span class="input-group-text">Mts</span>
+                <div style="margin: 20px 0px;">
+                  <p>Produtos escolhidos</p>
+                  <div class="posicaoFlex border-bottom">
+                    <div>
+                      <strong>Nome</strong>
+                    </div>
+                    <div>
+                      <strong>Preço</strong>
+                    </div>
+                    <div>
+                      <strong>Qnt.</strong>
+                    </div>
+                  </div>
+                  <div class="produtosEscolhidoFinal row  row-cols-1 row-cols-md-1 g-4">
+                    <div class="col">
+                      <div class="card cardRegVendasSelecionado">
+                        <div class="card-body">
+                          Nenhum Produto Escolhido
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-2">
-                  <label for="quantProd" class="form-label">Quantidade</label>
-                  <input type="text" class="form-control quantProdV" id="quantProd">
+                <div class="divTotal border-top" style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; margin: 20px 0px;">
+                  <strong>Total</strong>
+                  <span class="spanTotalVenda"></span>
                 </div>
-                <div class="col-md-3">
-                  <label for="valorTotalProduto" class="form-label">Valor total</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control valorTot" id="valorTotalProduto" aria-describedby="inputGroupPrepend3" disabled>
-                    <span class="input-group-text">Mts</span>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <label for="valorEntregueProduto" class="form-label">Valor entregue</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control valorEntr" id="valorEntregueProduto" required>
-                    <span class="input-group-text">Mts</span>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <label for="trocoCliente" class="form-label">Troco</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control valorTr" id="trocoCliente" aria-describedby="inputGroupPrepend3" disabled>
-                    <span class="input-group-text">Mts</span>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <label for="horaRegVendas" class="form-label">Hora</label>
-                    <input type="text" class="form-control horaRegVen" id="horaRegVendas" aria-describedby="inputGroupPrepend3" disabled>
-                </div>
+                
+                
                 <div class="col-12">
                   <button class="btn btn-primary btnRegVenda" type="submit">Registar Venda</button>
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">
-                    Vertically centered scrollable modal
-                  </button>
+                  
                 </div>
-              </form>
               </div>
             </div>
           </div>
@@ -736,8 +788,8 @@
                           <div class="row">
                             <button type="button" class="btn btn-secondary btn-sm p-2 btnAdicionarAMesa">Adicionar a uma mesa</button>
                           </div>
-                          <div class="row " style="margin: 10px 0px">
-                            <h4>Ou</h4>
+                          <div class="row align-middle" style="margin: 10px 0px; text-align: center;">
+                            <h4 class="">Ou</h4>
                           </div>
                           <div class="row">
                             <button type="button" class="btn btn-primary btn-sm p-2 btnFinalizarVenda" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">Finalizar venda</button>
@@ -752,10 +804,10 @@
 
                   <div class="modal-footer">
                     <div class="btnModalRegvendas" style="display: flex; flex-direction: row; flex-wrap: none;">
-                      <div class="divBtnCancelar" style="margin: 0px 20px 0px 0px;">
+                      <div class="divBtnCancelar">
                         <button type="button" class="btn btn-secondary btnCancelar" data-bs-dismiss="modal">Cancelar</button>
                       </div>
-                      <div class="divBtnProximo">
+                      <div class="divBtnProximo" style="margin: 0px 0px 0px 20px;">
                         <button type="button" class="btn btn-primary btnProximoRegVenda">Próximo</button>
                       </div>
                     </div>

@@ -2,7 +2,8 @@ import { firebaseConfig} from "./firebaseConfig.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getDatabase, ref, remove, onValue, set } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
 
-var modalRegistarVendas = document.querySelector(".modalRegistarVendas")
+var produtosEscolhidoFinal = document.querySelector(".produtosEscolhidoFinal")
+var metodoPagamentoEscolhido = document.querySelector(".metodoPagamentoEscolhido")
 var produtosAdicio = document.querySelector(".produtosAdicio")
 var metodosPagamentos = document.querySelector(".metodosPagamentos")
 var finalizarPreVenda = document.querySelector(".finalizarPreVenda")
@@ -10,6 +11,7 @@ var mesasDisponiveis = document.querySelector(".mesasDisponiveis")
 var divSelecProdutos = document.querySelector(".selecionarProdutos")
 var divSelecMetodos = document.querySelector(".selecionarMPagamento")
 var divBtnProximo = document.querySelector(".divBtnProximo")
+var spanTotalVenda = document.querySelector(".totalVenda")
 var btnAdicionarAMesa = document.querySelector(".btnAdicionarAMesa")
 var btnFinalizarVenda = document.querySelector(".btnFinalizarVenda")
 var botaoProximo = document.querySelector(".btnProximoRegVenda")
@@ -37,7 +39,10 @@ function addItemToTable(nomeProd, precVenda, tipoMoeda){
 
       const db = getDatabase();
       set(ref(db, 'produtos/selecProdutos/' + nomeProd), {
-        quantidadeProd: quantProduto - 1
+        nomeProduto: nomeProd,
+        quantidadeProd: quantProduto - 1,
+        precoProduto: precVenda,
+        tipoMoeda: tipoMoeda
       });
 
       if(divCard.classList.contains("cardRegVendasSelecionado")){
@@ -100,7 +105,7 @@ function addItemToTableMetodosP(nomeMetodo){
 
   nomeMetodoTxt.innerHTML = nomeMetodo
 
-  divCard.addEventListener("click", async ()=>{
+  divCard.addEventListener("click", ()=>{
     const db = getDatabase();
     set(ref(db, 'metodosPagamento/metodoSelecionado/' + nomeMetodo), {
       nomeMetodo: nomeMetodo
@@ -117,16 +122,16 @@ function addItemToTableMetodosP(nomeMetodo){
     const dbRef = ref(db, "metodosPagamento/metodoSelecionado")
     var dados
 
-    await onValue(dbRef, (snapshot)=>{
+    onValue(dbRef, (snapshot)=>{
       const data = snapshot.val()    
       dados = data
     })
 
-    async function passarPTelaFinalizarPreVenda(){
+    function passarPTelaFinalizarPreVenda(){
       console.log(dados)
 
       if(dados == null){
-        alert("Selecione um produto")
+        alert("Selecione um método")
       }else{
         divSelecMetodos.style.display = "none"
         finalizarPreVenda.style.display = "block"
@@ -177,30 +182,162 @@ function GetAllDataRealtimeMetodosP(){
 window.onload = GetAllDataRealtimeMetodosP()
 
 
+
+function addMetodNoCard(nomeMetodo){
+  let divCol = document.createElement("div")
+  let divCard = document.createElement("div")
+  let divCardBody = document.createElement("div")
+  let metodoPagamento = document.createElement("h5")
+
+  metodoPagamento.innerHTML = nomeMetodo
+
+  divCol.classList.add("col")
+  divCard.classList.add("card")
+  divCard.classList.add("cardRegVendasSelecionado")
+  divCardBody.classList.add("card-body")
+  metodoPagamento.classList.add("card-title")
+  metodoPagamento.style.fontSize = "16px"
+
+  divCol.appendChild(divCard)  
+  divCard.appendChild(divCardBody) 
+  divCardBody.appendChild(metodoPagamento)  
+
+  metodoPagamentoEscolhido.appendChild(divCol)
+}
+
+function addTdsMetodNoCard(metodo){
+  metodoPagamentoEscolhido.innerHTML = ""
+    metodo.forEach(element => {
+        addMetodNoCard(element.nomeMetodo)
+    });
+}
+
+function PegarMetodosSelecionado(){
+    const dbRef = ref(db, "metodosPagamento/metodoSelecionado")
+
+    onValue(dbRef, (snapshot) =>{
+        var metodoSelec = []
+
+        snapshot.forEach(childSnapshot => {
+          metodoSelec.push(childSnapshot.val())
+        })
+
+        addTdsMetodNoCard(metodoSelec)
+    })
+}
+
+
+function addProdutosNoCard(nomeProduto, precoProduto, tipoMoeda, quantidadeProd){
+  let divCol = document.createElement("div")
+  let divCard = document.createElement("div")
+  let divCardBody = document.createElement("div")
+  let produNomeTxt = document.createElement("h5")
+  let precoProdutoTxt = document.createElement("h5")
+  let produQuantidadeTxt = document.createElement("h5")
+
+  produNomeTxt.innerHTML = nomeProduto
+  precoProdutoTxt.innerHTML = precoProduto + ".00 " + tipoMoeda
+  produQuantidadeTxt.innerHTML = quantidadeProd
+
+  /*divCard.addEventListener("click", ()=>{
+    produQuantidade.innerHTML = "Qtd " + quantProduto++
+
+    const db = getDatabase();
+    set(ref(db, 'produtos/selecProdutos/' + nomeProduto), {
+      quantidadeProd: quantProduto - 1
+    });
+
+    if(divCard.classList.contains("cardRegVendasSelecionado")){
+      //
+    }else{
+      divCard.classList.add("cardRegVendasSelecionado")
+    }
+  })*/
+
+  divCol.classList.add("col")
+  divCard.classList.add("card")
+  divCard.classList.add("cardRegVendasSelecionado")
+  divCardBody.classList.add("card-body")
+  divCardBody.style.display = "flex"
+  divCardBody.style.flexDirection = "row"
+  divCardBody.style.flexWrap = "nowrap"
+  divCardBody.style.justifyContent = "space-between"
+  produNomeTxt.classList.add("card-title")
+  produNomeTxt.style.fontSize = "16px"
+  precoProdutoTxt.classList.add("card-title")
+  precoProdutoTxt.style.fontSize = "16px"
+  produQuantidadeTxt.classList.add("card-text")
+  produQuantidadeTxt.style.fontSize = "16px"
+
+  divCol.appendChild(divCard)  
+  divCard.appendChild(divCardBody) 
+  divCardBody.appendChild(produNomeTxt)  
+  divCardBody.appendChild(precoProdutoTxt)
+  divCardBody.appendChild(produQuantidadeTxt)  
+
+  produtosEscolhidoFinal.appendChild(divCol)
+}
+
+function addTdsProdutosNaDiv(produtos){
+  produtosEscolhidoFinal.innerHTML = ""
+  produtos.forEach(element => {
+      addProdutosNoCard(element.nomeProduto, element.precoProduto, element.tipoMoeda, element.quantidadeProd)
+  });
+}
+
+function PegarTdsProdutosSelecionados(){
+  const dbRef = ref(db, "produtos/selecProdutos")
+
+  onValue(dbRef, (snapshot) =>{
+      var todosProdutos = []
+
+      snapshot.forEach(childSnapshot => {
+        todosProdutos.push(childSnapshot.val())
+      })
+
+      addTdsProdutosNaDiv(todosProdutos)
+  })
+}
+
+
 btnAdicionarAMesa.addEventListener("click", ()=>{
   mesasDisponiveis.style.display = "block"
   alert("Esta em block")
 })
 
 btnFinalizarVenda.addEventListener("click", ()=>{
+  let btnProximo = document.createElement("button")
   //modalRegistarVendas.classList.remove("show")
   //modalRegistarVendas.ariaHidden = "true"
   //modalRegistarVendas.style.display = "none"
+
+  btnProximo.innerHTML = "Próximo"
+  btnProximo.classList.add("btn")
+  btnProximo.classList.add("btn-primary")
+  btnProximo.classList.add("btnProximoRegVenda")
+
+  divBtnProximo.appendChild(btnProximo)
+
+  divSelecProdutos.style.display = "block"
+  divSelecMetodos.style.display = "none"
+  finalizarPreVenda.style.display = "none"
   window.onload = GetAllDataRealtime()
   window.onload = GetAllDataRealtimeMetodosP()
+  window.onload = PegarMetodosSelecionado()
+  window.onload = PegarTdsProdutosSelecionados()
 })
 
 
-botaoProximo.addEventListener("click", async ()=>{
+botaoProximo.addEventListener("click", ()=>{
   const dbRef = ref(db, "produtos/selecProdutos")
   var dados
 
-  await onValue(dbRef, (snapshot)=>{
+  onValue(dbRef, (snapshot)=>{
     const data = snapshot.val()    
     dados = data
   })
 
-  async function passarPTelaMetodos(){
+  function passarPTelaMetodos(){
     console.log(dados)
 
     if(dados == null){
