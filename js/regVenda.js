@@ -1,6 +1,7 @@
 import { firebaseConfig} from "./firebaseConfig.js";
+import { TipoMoeda } from "./tipoMoeda.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-import { getDatabase, ref, remove, onValue, set } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+import { getDatabase, ref, remove, onValue, set, onChildAdded } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
 
 var produtosEscolhidoFinal = document.querySelector(".produtosEscolhidoFinal")
 var metodoPagamentoEscolhido = document.querySelector(".metodoPagamentoEscolhido")
@@ -11,14 +12,20 @@ var mesasDisponiveis = document.querySelector(".mesasDisponiveis")
 var divSelecProdutos = document.querySelector(".selecionarProdutos")
 var divSelecMetodos = document.querySelector(".selecionarMPagamento")
 var divBtnProximo = document.querySelector(".divBtnProximo")
-var spanTotalVenda = document.querySelector(".totalVenda")
+var spanTotalVenda = document.querySelector(".spanTotalVenda")
 var btnAdicionarAMesa = document.querySelector(".btnAdicionarAMesa")
 var btnFinalizarVenda = document.querySelector(".btnFinalizarVenda")
 var botaoProximo = document.querySelector(".btnProximoRegVenda")
 var botaoCancelar = document.querySelector(".btnCancelar")
+var btnRegVenda = document.querySelector(".btnRegVenda")
+
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
+set(ref(db, 'produtos/selecProdutosValor/'), {
+  valorTotal: 0
+});
 
 function addItemToTable(nomeProd, precVenda, tipoMoeda){
     let divCol = document.createElement("div")
@@ -27,12 +34,14 @@ function addItemToTable(nomeProd, precVenda, tipoMoeda){
     let produNome = document.createElement("h3")
     let produQuantidade = document.createElement("h5")
     let produPreco = document.createElement("h1")
-    let quantProduto = 0
+    let quantProduto = 1
     //produQuantidade.innerHTML = "Qtd " + quantProduto
 
 
     produNome.innerHTML = nomeProd
     produPreco.innerHTML = precVenda + " " + tipoMoeda
+
+    
 
     divCard.addEventListener("click", ()=>{
       produQuantidade.innerHTML = "Qtd " + quantProduto++
@@ -50,6 +59,23 @@ function addItemToTable(nomeProd, precVenda, tipoMoeda){
       }else{
         divCard.classList.add("cardRegVendasSelecionado")
       }
+
+      let valorActual = 0 
+      let valorSomado = 0
+      let valorProduto = precVenda
+      const dbRef = ref(db, "produtos/selecProdutosValor")
+
+      onValue(dbRef, (snapshot) => {
+        var data = snapshot.val()
+        valorActual = data.valorTotal
+        
+      })
+
+      valorSomado = parseInt(valorProduto) + parseInt(valorActual)
+        
+      set(ref(db, 'produtos/selecProdutosValor/'), {
+        valorTotal: valorSomado
+      });
     })
 
     divCol.classList.add("col")
@@ -307,6 +333,7 @@ btnAdicionarAMesa.addEventListener("click", ()=>{
 
 btnFinalizarVenda.addEventListener("click", ()=>{
   let btnProximo = document.createElement("button")
+  let valorTotal = 0
   //modalRegistarVendas.classList.remove("show")
   //modalRegistarVendas.ariaHidden = "true"
   //modalRegistarVendas.style.display = "none"
@@ -325,6 +352,17 @@ btnFinalizarVenda.addEventListener("click", ()=>{
   window.onload = GetAllDataRealtimeMetodosP()
   window.onload = PegarMetodosSelecionado()
   window.onload = PegarTdsProdutosSelecionados()
+
+
+  const dbRef = ref(db, "produtos/selecProdutosValor")
+
+  onValue(dbRef, (snapshot)=>{
+    const data = snapshot.val()
+
+    valorTotal = data.valorTotal
+  })
+
+  spanTotalVenda.innerHTML = valorTotal + " " + TipoMoeda
 })
 
 
@@ -368,6 +406,82 @@ botaoCancelar.addEventListener("click", ()=>{
 
   divSelecProdutos.style.display = "block"
   divSelecMetodos.style.display = "none"
+  finalizarPreVenda.style.display = "none"
+})
+
+const dbRefMetPagamentoE = ref(db, "metodosPagamento/metodoSelecionado")
+let confirE = true
+
+onValue(dbRefMetPagamentoE, (snapshot)=>{
+  const data = snapshot.val()
+  console.log(data)
+  if(data == null){
+    confirE = false
+  }else{
+    confirE = true
+  }
+})
+
+var chaveVendasString
+var chaveVendas
+
+const commentsRef = ref(db, 'vendas');
+  onChildAdded(commentsRef, (data) => {
+    //addCommentElement(postElement, data.key, data.val().text, data.val().author);
+    const dados = data.val()
+    console.log(data.key)
+    chaveVendasString = data.key
+    console.log(parseInt(chaveVendasString) + 1)
+  });
+
+btnRegVenda.addEventListener("click", ()=>{
+  let produtosSelecionados = ""
+  let metodoSelecionando = ""
+
+  const dbRefProdutos = ref(db, "produtos/selecProdutos")
+  const dbRefMetodo = ref(db, "/metodosPagamento/metodoSelecionado")
+  onValue(dbRefProdutos, (snapshot)=>{
+    const data = snapshot.val()
+    produtosSelecionados = data
+  })
+
+  onValue(dbRefMetodo, (snapshot)=>{
+    const data = snapshot.val()
+    metodoSelecionando = data
+  })
+
+    chaveVendas = parseInt(chaveVendasString)
+
+  if(confirE == true){
+    console.log(chaveVendas++)
+    set(ref(db, 'vendas/' + chaveVendas), {
+      produtos: produtosSelecionados,
+      metodoPagamento: metodoSelecionando
+    });
+
+    alert("Venda cadatrada com sucesso")
+
+    
+  }else{
+    alert("Adicione produtos para venda antes")
+  }
+
+  set(ref(db, 'produtos/selecProdutosValor/'), {
+    valorTotal: 0
+  });
+
+  const dbRefProdSelect = ref(db, "produtos/selecProdutos")
+  const dbRefMethSelect = ref(db, "metodosPagamento/metodoSelecionado")
+
+  remove(dbRefProdSelect)
+  remove(dbRefMethSelect)
+
+  window.onload = GetAllDataRealtime()
+  window.onload = GetAllDataRealtimeMetodosP()
+
+  divSelecProdutos.style.display = "block"
+  divSelecMetodos.style.display = "none"
+  finalizarPreVenda.style.display = "none"
 })
 
 

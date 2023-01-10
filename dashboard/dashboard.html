@@ -6,13 +6,13 @@
     <meta name="description" content="">
     <title>BR Gest.</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+    <!--<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">-->
     <link rel="shortcut icon" href="../img/BR Gest favicon 01.png" type="image/x-icon">
 
     
 
     <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     
 
@@ -40,808 +40,812 @@
     <link href="../css/cards.css" rel="stylesheet">
     <link href="../css/chartDesempenho.css" rel="stylesheet">
     <link href="../css/cardRegistarvendas.css" rel="stylesheet">
-</head>
+  </head>
 
-<body>  
-  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"><img  src="../img/BR Gest logo 03.png" alt="Logotipo da companhia e-bar&rest" style="margin: 0px; padding: 0px; width: 80px"></a>
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Pesquisar" aria-label="Search">
-    <div class="navbar-nav">
-      <div class="nav-item text-nowrap">
-        <a class="nav-link px-3"><button class="logoutt" style="background: none; color: white; border: none;">Sair</button></a>
-      </div>
-    </div>
-  </header>
-
-  <div class="container-fluid">
-    <div class="row">
-      <nav id="sidebarMenu" class="menuLateral col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-        <div class="position-sticky pt-3">
-          <ul class="list-unstyled ps-0">
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed btnDashboard" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                Página inicial
-              </button>
-              <div class="collapse show" id="home-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#iniDashboard" class="link-dark rounded">Página inicial</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed btnVendas" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                Vendas
-              </button>
-              <div class="collapse" id="dashboard-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#sectionReg" class="link-dark rounded">Registar venda</a></li>
-                  <li><a href="#sectionPedidos" class="link-dark rounded">Pedidos</a></li>
-                  <li><a href="#sectionMesas" class="link-dark rounded">Mesas</a></li>
-                </ul>
-              </div>
-            </li>
-            <!--<li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed btnCaixa" data-bs-toggle="collapse" data-bs-target="#caixa-collapse" aria-expanded="false">
-                Caixa
-              </button>
-              <div class="collapse" id="caixa-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">Início</a></li>
-                  <li><a href="#" class="link-dark rounded">Registar entrada</a></li>
-                  <li><a href="#" class="link-dark rounded">Registar saída</a></li>
-                  <li><a href="#" class="link-dark rounded">Registos</a></li>
-                </ul>
-              </div>
-            </li>-->
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed btnProdutos" data-bs-toggle="collapse" data-bs-target="#produtos-collapse" aria-expanded="false">
-                Produtos
-              </button>
-              <div class="collapse" id="produtos-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#sectionCadas" class="link-dark rounded">Cadastro de produtos</a></li>
-                  <li><a href="#sectionEntrEst" class="link-dark rounded">Registo de entrada no estoque</a></li>
-                  <!--<li><a href="#" class="link-dark rounded">Registo de saída no estoque</a></li>
-                  <li><a href="#" class="link-dark rounded">Remoção de produtos</a></li>-->
-                  <li><a href="#sectionVerEst" class="link-dark rounded">Ver estoque</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed btnColaboradores" data-bs-toggle="collapse" data-bs-target="#usuarios-collapse" aria-expanded="false">
-                Colaboradores
-              </button>
-              <div class="collapse" id="usuarios-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#sectionCadasCol" class="link-dark rounded">Cadastro de colaboradores</a></li>
-                  <li><a href="#sectionCadasCol" class="link-dark rounded">Remoção de colaboradores</a></li>
-                  <li><a href="#sectionVerCol" class="link-dark rounded">Ver colaboradores</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="border-top my-3"></li>
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed btnUsuario" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                Usuário
-              </button>
-              <div class="collapse" id="account-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">Usuário</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
+  <body>  
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#"><img  src="../img/BR Gest logo 03.png" alt="Logotipo da companhia e-bar&rest" style="margin: 0px; padding: 0px; width: 80px"></a>
+      <div class="navbar-nav">
+        <div class="nav-item text-nowrap  justify-content-end" style="margin-right: 70px;">
+          <a class="nav-link px-3"><button class="logoutt" style="background: none; color: white; border: none;">Sair</button></a>
         </div>
-      </nav>
+        <div>
+          <button class="navbar-toggler position-absolute d-md-none collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+      
+      <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Pesquisar" aria-label="Search" style="display: none;">-->
+      
+    </header>
 
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <section class="dashboard" style="display: block;">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" name="iniDashboard">
-            <h1 class="h2">Página inicial</h1>
-          </div>
-          <div class="cardNumGerais">
-            <div class="col-md-3">
-              <div class="card-body cardSaldo">
-                <h5 class="card-title">Saldo na conta</h5>
-                <div>
-                  <h1 class="saldoContaTxt">99</h1>
-                  <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="menuLateral col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="position-sticky pt-3">
+            <ul class="list-unstyled ps-0">
+              <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed btnDashboard" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                  Página inicial
+                </button>
+                <div class="collapse show" id="home-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#iniDashboard" class="link-dark rounded">Página inicial</a></li>
+                  </ul>
                 </div>
+              </li>
+              <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed btnVendas" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                  Vendas
+                </button>
+                <div class="collapse" id="dashboard-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#sectionReg" class="link-dark rounded">Registar venda</a></li>
+                    <li><a href="#sectionPedidos" class="link-dark rounded">Pedidos</a></li>
+                    <li><a href="#sectionMesas" class="link-dark rounded">Mesas</a></li>
+                  </ul>
+                </div>
+              </li>
+              <!--<li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed btnCaixa" data-bs-toggle="collapse" data-bs-target="#caixa-collapse" aria-expanded="false">
+                  Caixa
+                </button>
+                <div class="collapse" id="caixa-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Início</a></li>
+                    <li><a href="#" class="link-dark rounded">Registar entrada</a></li>
+                    <li><a href="#" class="link-dark rounded">Registar saída</a></li>
+                    <li><a href="#" class="link-dark rounded">Registos</a></li>
+                  </ul>
+                </div>
+              </li>-->
+              <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed btnProdutos" data-bs-toggle="collapse" data-bs-target="#produtos-collapse" aria-expanded="false">
+                  Produtos
+                </button>
+                <div class="collapse" id="produtos-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#sectionCadas" class="link-dark rounded">Cadastro de produtos</a></li>
+                    <li><a href="#sectionEntrEst" class="link-dark rounded">Registo de entrada no estoque</a></li>
+                    <!--<li><a href="#" class="link-dark rounded">Registo de saída no estoque</a></li>
+                    <li><a href="#" class="link-dark rounded">Remoção de produtos</a></li>-->
+                    <li><a href="#sectionVerEst" class="link-dark rounded">Ver estoque</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed btnColaboradores" data-bs-toggle="collapse" data-bs-target="#usuarios-collapse" aria-expanded="false">
+                  Colaboradores
+                </button>
+                <div class="collapse" id="usuarios-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#sectionCadasCol" class="link-dark rounded">Cadastro de colaboradores</a></li>
+                    <li><a href="#sectionCadasCol" class="link-dark rounded">Remoção de colaboradores</a></li>
+                    <li><a href="#sectionVerCol" class="link-dark rounded">Ver colaboradores</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="border-top my-3"></li>
+              <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed btnUsuario" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                  Usuário
+                </button>
+                <div class="collapse" id="account-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Usuário</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <section class="dashboard" style="display: block;">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" name="iniDashboard">
+              <h1 class="h2">Página inicial</h1>
+            </div>
+            <div class="cardNumGerais">
+              <div class="col-md-3">
+                <div class="card-body cardSaldo">
+                  <h5 class="card-title">Saldo na conta</h5>
+                  <div>
+                    <h1 class="saldoContaTxt">99</h1>
+                    <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                  </div>
+                </div>
+              </div>  
+              
+              <div class="col-md-9">
+                <div class="card-body cardGanho">
+                  <h5 class="card-title">Ganhos</h5>
+                  <div class="cardGanhoGanho">
+                    <div>
+                      <p class="card-title">Hoje, até agora</p>
+                      <h1 class="saldoGanhoTxt">99</h1>
+                      <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                    </div>
+
+                    <div>
+                      <p class="card-title">Ontem</p>
+                      <h1 class="saldoGanhoTxt">99</h1>
+                      <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                    </div>
+
+                    <div>
+                      <p class="card-title">Últimos 7 dias</p>
+                      <h1 class="saldoGanhoTxt">99</h1>
+                      <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                    </div>
+
+                    <div>
+                      <p class="card-title">Este mês</p>
+                      <h1 class="saldoGanhoTxt">99</h1>
+                      <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>  
+            </div>
+            <div class="divDesempenho ">
+              <div class="d-flex flex-nowrap md-12" style="display: flex; flex-wrap: wrap; width: 100%;">
+                <h5>Desempenho</h5>
               </div>
-            </div>  
+
+              <div class="">
+                <canvas class="chartDesempenho"></canvas>
+              </div>
+            </div>
             
-            <div class="col-md-9">
-              <div class="card-body cardGanho">
-                <h5 class="card-title">Ganhos</h5>
-                <div class="cardGanhoGanho">
-                  <div>
-                    <p class="card-title">Hoje, até agora</p>
-                    <h1 class="saldoGanhoTxt">99</h1>
-                    <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
-                  </div>
+          </section>
 
-                  <div>
-                    <p class="card-title">Ontem</p>
-                    <h1 class="saldoGanhoTxt">99</h1>
-                    <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
-                  </div>
-
-                  <div>
-                    <p class="card-title">Últimos 7 dias</p>
-                    <h1 class="saldoGanhoTxt">99</h1>
-                    <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
-                  </div>
-
-                  <div>
-                    <p class="card-title">Este mês</p>
-                    <h1 class="saldoGanhoTxt">99</h1>
-                    <p class="card-text"><small class="text-muted">Valor mais actualizado</small></p>
-                  </div>
-
-                </div>
-              </div>
-            </div>  
-          </div>
-          <div class="divDesempenho ">
-            <div class="d-flex flex-nowrap md-12" style="display: flex; flex-wrap: wrap; width: 100%;">
-              <h5>Desempenho</h5>
+          <section class="vendas" style="display: none;">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Vendas</h1>
             </div>
 
-            <div class="">
-              <canvas class="chartDesempenho"></canvas>
-            </div>
-          </div>
-          
-        </section>
-
-        <section class="vendas" style="display: none;">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Vendas</h1>
-          </div>
-
-          <div class="registarVendas">
-            <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
-              <h2 id="sectionReg">Registar Vendas</h2>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">
-                Adicionar produtos para venda 
-              </button>
-            </div>
-
-            <div>
-              <div class="bd-example">
-                <!--<form class="row g-3">
-                  <div class="col-md-2">
-                    <label for="codProdutoRegVendas" class="form-label">Codigo do Produto</label>
-                    <div class="input-group has-validation">
-                      <span class="input-group-text">@</span>
-                      <input type="text" class="form-control codProdV" id="codProdutoRegVendas" required>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <label for="nomeProdutoVendas" class="form-label">Nome do produto</label>
-                    <input type="text" class="form-control nomeProdV" id="nomeProdutoVendas" required>
-                  </div>
-                  <div class="col-md-3">
-                    <label for="precoProduto" class="form-label">Preço</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control precVenda" id="precoProduto" aria-describedby="inputGroupPrepend3" disabled>
-                      <span class="input-group-text">Mts</span>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <label for="quantProd" class="form-label">Quantidade</label>
-                    <input type="text" class="form-control quantProdV" id="quantProd">
-                  </div>
-                  <div class="col-md-3">
-                    <label for="valorTotalProduto" class="form-label">Valor total</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control valorTot" id="valorTotalProduto" aria-describedby="inputGroupPrepend3" disabled>
-                      <span class="input-group-text">Mts</span>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <label for="valorEntregueProduto" class="form-label">Valor entregue</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control valorEntr" id="valorEntregueProduto" required>
-                      <span class="input-group-text">Mts</span>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <label for="trocoCliente" class="form-label">Troco</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control valorTr" id="trocoCliente" aria-describedby="inputGroupPrepend3" disabled>
-                      <span class="input-group-text">Mts</span>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <label for="horaRegVendas" class="form-label">Hora</label>
-                      <input type="text" class="form-control horaRegVen" id="horaRegVendas" aria-describedby="inputGroupPrepend3" disabled>
-                  </div>
-                  <div class="col-12">
-                    <button class="btn btn-primary btnRegVenda" type="submit">Registar Venda</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">
-                      Vertically centered scrollable modal
-                    </button>
-                  </div>
-                </form>-->
-                
-                <h5>Confirme o pedido</h5>
-                <div style="margin: 20px 0px;">
-                  <p>Método de pagamento escolhido</p>
-                  <div class="metodoPagamentoEscolhido row  row-cols-1 row-cols-md-1 g-4">
-                    <div class="col">
-                      <div class="card cardRegVendasSelecionado">
-                        <div class="card-body">
-                          Nenhum método Escolhido
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div style="margin: 20px 0px;">
-                  <p>Produtos escolhidos</p>
-                  <div class="posicaoFlex border-bottom">
-                    <div>
-                      <strong>Nome</strong>
-                    </div>
-                    <div>
-                      <strong>Preço</strong>
-                    </div>
-                    <div>
-                      <strong>Qnt.</strong>
-                    </div>
-                  </div>
-                  <div class="produtosEscolhidoFinal row  row-cols-1 row-cols-md-1 g-4">
-                    <div class="col">
-                      <div class="card cardRegVendasSelecionado">
-                        <div class="card-body">
-                          Nenhum Produto Escolhido
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="divTotal border-top" style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; margin: 20px 0px;">
-                  <strong>Total</strong>
-                  <span class="spanTotalVenda"></span>
-                </div>
-                
-                
-                <div class="col-12">
-                  <button class="btn btn-primary btnRegVenda" type="submit">Registar Venda</button>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="pedidos" style="margin: 30px 0px">
-            <h2 id="sectionPedidos">Pedidos</h2>
-
-            <div class="">
-              <form class="row g-3">
-                <div class="col-md-6">
-                  <label for="codPedido" class="form-label">Codigo do pedido</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control codPedido" id="codPedido" required>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label for="estadoPedi" class="form-label">Estado do pedido</label>                
-                  
-                    <select class="form-select form-select estadoPedi" id="estadoPedi" aria-label=".form-select-lg example">
-                      <option selected>Selecione a opção</option>
-                      <option value="Aberto">Aberto</option>
-                      <option value="Cancelado">Cancelado</option>
-                      <option value="Finalizado">Finalizado</option>
-                    </select>
-                  
-                </div>
-                <div class="col-md-12">
-                  <label for="prodPedidos" class="form-label prodPed">Produtos pedidos</label>
-                  <textarea class="form-control prodPedidos" aria-label="With textarea" id="prodPedidos"></textarea>
-                </div>
-                
-                <div class="col-4">
-                  <button class="btn btn-primary btnRegPedido" type="submit">Adicionar Pedido</button>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn-primary btnAltPedido" type="submit">Alterar Pedido</button>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn- btnCanPedido" type="submit" disabled>Apagar Pedido</button>
-                </div>
-              </form>
-            </div>
-
-            <div class="" style="margin: 30px 0px">
-              <h3>Ver Pedidos</h3>
-              <table class="table table-striped">
-                <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Pedidos feitos</th>
-                  <th scope="col">Estado</th>
-                  
-                </tr>
-                </thead>
-                <tbody class="bodyPedidos"></tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="Mesas" style="margin: 30px 0px">
-            <h2 id="sectionMesas">Mesas</h2>
-
-            <div class="">
-              <form class="row g-3">
-                <div class="col-md-4">
-                  <label for="codMesa" class="form-label">Codigo da mesa</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control codMesa" id="codMesa" required>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <label for="estadoPediMesas" class="form-label">Estado da mesa</label>                
-                  
-                    <select class="form-select form-select" id="estadoPediMesas" aria-label=".form-select-lg example">
-                      <option selected>Selecione a opção</option>
-                      <option value="1">Aberto</option>
-                      <option value="2">Cancelado</option>
-                      <option value="3">Finalizado</option>
-                    </select>
-                  
-                </div>
-                <div class="col-md-4">
-                  <label for="responsaMesa" class="form-label">Responsavel</label>
-                  <input type="text" class="form-control" id="responsaMesa" aria-describedby="inputGroupPrepend3">
-                </div>
-                <div class="col-md-12">
-                  <label for="prodConsumidos" class="form-label">Produtos Consumidos</label>
-                  <textarea class="form-control prodConsumidos" aria-label="With textarea" id="prodConsumidos"></textarea>
-                </div>
-                
-                <div class="col-4">
-                  <button class="btn btn-primary" type="submit">Adicionar Pedido</button>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn-primary" type="submit">Alterar Pedido</button>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn-primary" type="submit">Apagar Pedido</button>
-                </div>
-              </form>
-            </div>
-
-            <div class="" style="margin: 30px 0px">
-              <h3>Ver Pedidos</h3>
-              <table class="table table-striped">
-                <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Pedidos feitos</th>
-                  <th scope="col">Estado</th>
-                  <th scope="col">Responsavel</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>Otto</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td >Larry the Bird</td>
-                  <td>@twitter</td>
-                  <td>Otto</td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-
-        </section>
-
-        <section class="caixa" style="display: none;">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Caixa</h1>
-          </div>
-
-
-        </section>
-
-        <section class="produtos" style="display: none;">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Produtos</h1>
-          </div>
-
-          <div class="registarProdutos">
-            <h2 id="sectionCadas">Cadastro de produtos</h2>
-
-            <div>
-              <div class="bd-example">
-              <form class="row g-3">
-                <div class="col-md-12">
-                  <label for="nomeProdutoCadastro" class="form-label">Nome do produto</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control nomeProd" id="nomeProdutoCadastro" required>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <label for="precoCompraProduto" class="form-label">Preço de compra /uni.</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control precCompra" id="precoCompraProduto" required>
-                    <span class="input-group-text">Mts</span>
-                  </div>
-                  
-                </div>
-                <div class="col-md-4">
-                  <label for="precoVendaProduto" class="form-label">Preço para venda /uni.</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control precVendaR" id="precoVendaProduto" aria-describedby="inputGroupPrepend3" required>
-                    <span class="input-group-text">Mts</span>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <label for="lucroVendaProduto" class="form-label">Lucro da venda /uni.</label>
-                  <div class="input-group">
-                    <input type="number" class="form-control lucroVenda" id="lucroVendaProduto" aria-describedby="inputGroupPrepend3" disabled>
-                    <span class="input-group-text">Mts</span>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <label for="lucroVendaProduto" class="form-label">Data de validade</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control dataValidade" id="lucroVendaProduto" aria-describedby="inputGroupPrepend3" placeholder="Ex.: 30/12/2000">
-                    <span class="input-group-text">Mts</span>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <label for="horaRegCadProdutos" class="form-label">Hora</label>
-                    <input type="text" class="form-control horaRegCadProd" id="horaRegCadProdutos" aria-describedby="inputGroupPrepend3" disabled>
-                </div>
-                
-              </form>
-
-              <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="margin: 20px 0px ;">
-                <div class="col-4">
-                  <button class="btn btn-primary btnRegProd" type="submit">Registar Produto</button>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn-primary btnAlterProd" type="submit">Alterar Produto</button>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn-primary btnApagProd" type="submit" disabled>Apagar Produto</button>
-                </div>
-              </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="" style="margin: 30px 0px">
-            <h2 id="sectionEntrEst">Registo de entrada no stoque</h2>
-
-            <div>
-              <div class="bd-example">
-              <form class="row g-3">
-                <div class="col-md-12">
-                  <label for="nomeProdutoEstoque" class="form-label label2">Nome do produto</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control nomeProdE" id="codProdutoEstoque" required>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <label for="quantProdEstoque" class="form-label">Quantidade</label>
-                  <input type="text" class="form-control quantProdE" id="quantProdEstoque">
-                </div>
-                <div class="col-md-4">
-                  <label for="horaRegRegEntradaActual" class="form-label">Hora actual</label>
-                    <input type="text" class="form-control horaRegEst" id="horaRegRegEntradaActual" aria-describedby="inputGroupPrepend3" disabled>
-                </div>
-                <div class="col-4">
-                  <button class="btn btn-primary btnAdiProdE" type="submit">Adicionar Produto</button>
-                </div>
-              </form>
-              </div>
-            </div>
-          </div>
-
-          <div class="" style="margin: 30px 0px">
-            <h2 id="sectionVerEst">Ver stoque</h2>
-
-            <!--<div class="col-4">
-              <button class="btn btn-outline-primary btnRefresh" type="submit">Refresh</button>
-            </div>-->
-
-            <div>
-              <table class="table table-striped">
-                <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nome do produto</th>
-                  <th scope="col">Quantidade disponivel</th>
-                  <th scope="col">Ultima modificacao</th>
-                </tr>
-                </thead>
-                <tbody class="bodyEstoque"></tbody>
-              </table>
-            </div>
-          </div>
-
-
-        </section>
-
-        <section class="colaboradores" style="display: none;">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Colaboradores</h1>
-          </div>
-    
             <div class="registarVendas">
-              <h2 id="sectionCadasCol">Cadastro de Colaboradores</h2>
-    
+              <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+                <h2 id="sectionReg">Registar Vendas</h2>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">
+                  Adicionar produtos 
+                </button>
+              </div>
+
               <div>
                 <div class="bd-example">
-                <form class="row g-3">
-                  <div class="col-md-4">
-                    <label for="codColaboradores" class="form-label">Codigo do colaboradores</label>
-                    <div class="input-group has-validation">
-                      <span class="input-group-text">@</span>
-                      <input type="text" class="form-control usuarioColab" id="codColaboradores" required>
+                  <!--<form class="row g-3">
+                    <div class="col-md-2">
+                      <label for="codProdutoRegVendas" class="form-label">Codigo do Produto</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control codProdV" id="codProdutoRegVendas" required>
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <label for="nomeProdutoVendas" class="form-label">Nome do produto</label>
+                      <input type="text" class="form-control nomeProdV" id="nomeProdutoVendas" required>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="precoProduto" class="form-label">Preço</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control precVenda" id="precoProduto" aria-describedby="inputGroupPrepend3" disabled>
+                        <span class="input-group-text">Mts</span>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <label for="quantProd" class="form-label">Quantidade</label>
+                      <input type="text" class="form-control quantProdV" id="quantProd">
+                    </div>
+                    <div class="col-md-3">
+                      <label for="valorTotalProduto" class="form-label">Valor total</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control valorTot" id="valorTotalProduto" aria-describedby="inputGroupPrepend3" disabled>
+                        <span class="input-group-text">Mts</span>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="valorEntregueProduto" class="form-label">Valor entregue</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control valorEntr" id="valorEntregueProduto" required>
+                        <span class="input-group-text">Mts</span>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="trocoCliente" class="form-label">Troco</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control valorTr" id="trocoCliente" aria-describedby="inputGroupPrepend3" disabled>
+                        <span class="input-group-text">Mts</span>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="horaRegVendas" class="form-label">Hora</label>
+                        <input type="text" class="form-control horaRegVen" id="horaRegVendas" aria-describedby="inputGroupPrepend3" disabled>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary btnRegVenda" type="submit">Registar Venda</button>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">
+                        Vertically centered scrollable modal
+                      </button>
+                    </div>
+                  </form>-->
+                  
+                  <h5>Confirme o pedido</h5>
+                  <div style="margin: 20px 0px;">
+                    <p>Método de pagamento escolhido</p>
+                    <div class="metodoPagamentoEscolhido row  row-cols-1 row-cols-md-1 g-4">
+                      <div class="col">
+                        <div class="card cardRegVendasSelecionado">
+                          <div class="card-body">
+                            Nenhum método Escolhido
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-8">
-                    <label for="nomeColaboradores" class="form-label">Nome do colaboradores</label>
-                    <input type="text" class="form-control nomeColab" id="nomeColaboradores" required>
-                  </div>
-                  <div class="col-md-8">
-                    <label for="enderecoColaboradores" class="form-label">Endereço</label>
-                    <input type="address" class="form-control enderColab" id="enderecoColaboradores" required>
-                  </div>
-                  <div class="col-md-4">
-                    <label for="telColaboradores" class="form-label">Telefone</label>
-                    <input type="tel" class="form-control telColab" id="telColaboradores" required>
-                  </div>
-                  <div class="col-md-12">
-                    <label for="mailColaboradores" class="form-label">E-mail</label>
-                    <input type="email" class="form-control emailColab" id="mailColaboradores" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label for="categoria" class="form-label">Categoria</label>
-                    <select class="form-select form-select catgColab" id="categoria" aria-label=".form-select-lg example">
-                      <option selected>Selecione a opção</option>
-                      <option value="Administrador">Administrador</option>
-                      <option value="Gerente Caixa">Gerente Caixa</option>
-                      <option value="Gerente Vendas">Gerente Vendas</option>
-                      <option value="Gerente Estoque">Gerente Estoque</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6">
-                    <label for="Colaboradores" class="form-label">Senha Inicial</label>
-                      <input type="password" class="form-control Colaboradores passColab" id="passIni" aria-describedby="inputGroupPrepend3">
-                  </div>
-                </form>
-                  <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="position: relative; width: 100%; margin: 20px 0px;">
-                    <div class="col-4">
-                      <button class="btn btn-primary btnCadasColab" type="button">Cadastrar Colaborador</button>
+                  <div style="margin: 20px 0px;">
+                    <p>Produtos escolhidos</p>
+                    <div class="posicaoFlex border-bottom">
+                      <div>
+                        <strong>Nome</strong>
+                      </div>
+                      <div>
+                        <strong>Preço</strong>
+                      </div>
+                      <div>
+                        <strong>Qnt.</strong>
+                      </div>
                     </div>
-                    <div class="col-4">
-                      <button class="btn btn-primary" type="button">Alterar Colaborador</button>
+                    <div class="produtosEscolhidoFinal row  row-cols-1 row-cols-md-1 g-4">
+                      <div class="col">
+                        <div class="card cardRegVendasSelecionado">
+                          <div class="card-body">
+                            Nenhum Produto Escolhido
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-4">
-                      <button class="btn btn-primary" type="button">Apagar Colaborador</button>
-                    </div>
+                  </div>
+                  <div class="divTotal border-top" style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; margin: 20px 0px;">
+                    <strong>Total</strong>
+                    <span class="spanTotalVenda"></span>
+                  </div>
+                  
+                  
+                  <div class="col-12">
+                    <button class="btn btn-primary btnRegVenda align-right" type="submit">Registar Venda</button>
+                    
                   </div>
                 </div>
               </div>
             </div>
-    
-            <div class="" style="margin: 30px 0px">
-              <h2 id="sectionVerCol">Ver colaboradores</h2>
-    
-              <div style="position: relative; width: 100%; overflow: scroll;">
-                <table class="table table-striped" style="position: relative; width: 100%; max-width: max-content; overflow: scroll;">
+
+            <div class="pedidos" style="margin: 30px 0px">
+              <h2 id="sectionPedidos">Pedidos</h2>
+
+              <div class="">
+                <form class="row g-3">
+                  <div class="col-md-6">
+                    <label for="codPedido" class="form-label">Codigo do pedido</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control codPedido" id="codPedido" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="estadoPedi" class="form-label">Estado do pedido</label>                
+                    
+                      <select class="form-select form-select estadoPedi" id="estadoPedi" aria-label=".form-select-lg example">
+                        <option selected>Selecione a opção</option>
+                        <option value="Aberto">Aberto</option>
+                        <option value="Cancelado">Cancelado</option>
+                        <option value="Finalizado">Finalizado</option>
+                      </select>
+                    
+                  </div>
+                  <div class="col-md-12">
+                    <label for="prodPedidos" class="form-label prodPed">Produtos pedidos</label>
+                    <textarea class="form-control prodPedidos" aria-label="With textarea" id="prodPedidos"></textarea>
+                  </div>
+                  
+                  <div class="col-4">
+                    <button class="btn btn-primary btnRegPedido" type="submit">Adicionar Pedido</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-primary btnAltPedido" type="submit">Alterar Pedido</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn- btnCanPedido" type="submit" disabled>Apagar Pedido</button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="" style="margin: 30px 0px">
+                <h3>Ver Pedidos</h3>
+                <table class="table table-striped">
                   <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Esdereco</th>
-                    <th scope="col">telefone</th>
-                    <th scope="col">E-mail</th>
+                    <th scope="col">Pedidos feitos</th>
+                    <th scope="col">Estado</th>
+                    
                   </tr>
                   </thead>
-                  <tbody class="bodyColab">
+                  <tbody class="bodyPedidos"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="Mesas" style="margin: 30px 0px">
+              <h2 id="sectionMesas">Mesas</h2>
+
+              <div class="">
+                <form class="row g-3">
+                  <div class="col-md-4">
+                    <label for="codMesa" class="form-label">Codigo da mesa</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control codMesa" id="codMesa" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="estadoPediMesas" class="form-label">Estado da mesa</label>                
+                    
+                      <select class="form-select form-select" id="estadoPediMesas" aria-label=".form-select-lg example">
+                        <option selected>Selecione a opção</option>
+                        <option value="1">Aberto</option>
+                        <option value="2">Cancelado</option>
+                        <option value="3">Finalizado</option>
+                      </select>
+                    
+                  </div>
+                  <div class="col-md-4">
+                    <label for="responsaMesa" class="form-label">Responsavel</label>
+                    <input type="text" class="form-control" id="responsaMesa" aria-describedby="inputGroupPrepend3">
+                  </div>
+                  <div class="col-md-12">
+                    <label for="prodConsumidos" class="form-label">Produtos Consumidos</label>
+                    <textarea class="form-control prodConsumidos" aria-label="With textarea" id="prodConsumidos"></textarea>
+                  </div>
                   
+                  <div class="col-4">
+                    <button class="btn btn-primary" type="submit">Adicionar Pedido</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-primary" type="submit">Alterar Pedido</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-primary" type="submit">Apagar Pedido</button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="" style="margin: 30px 0px">
+                <h3>Ver Pedidos</h3>
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pedidos feitos</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Responsavel</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>Otto</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td >Larry the Bird</td>
+                    <td>@twitter</td>
+                    <td>Otto</td>
+                  </tr>
                   </tbody>
                 </table>
               </div>
             </div>
-        </section>
 
-        <section class="usuario" style="display: none;">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Usuário</h1>
-          </div>
 
-          <div class="dadosUser">
-            <div class="txtDadosUser">
-              <h2>Dados do usuário</h2>
-            </div>
-            <div class="listaDadosUser">
-              <div>
-                <strong>Código: </strong>
-                <label class="userCod" for="">Leonildo Julio</label>
-              </div>
-              <div>
-                <strong>Nome: </strong>
-                <label class="userNome" for="">Leonildo Julio</label>
-              </div>
-              <div>
-                <strong>Categoria: </strong>
-                <label class="userCategoria" for="">Leonildo Julio</label>
-              </div>
-              <div>
-                <strong>Endereço: </strong>
-                <label class="userEnder" for="">Leonildo Julio</label>
-              </div>
-              <div>
-                <strong>Telefone: </strong>
-                <label class="userTelefone" for="">Leonildo Julio</label>
-              </div>
-              <div>
-                <strong>E-mail: </strong>
-                <label class="userMail" for="">Leonildo Julio</label>
-              </div>
+          </section>
 
-            </div>
-          </div>
-
-          <div class="alterSenha">
-            <div class="txt">
-              <h2>Alterar senha do usário</h2>
+          <section class="caixa" style="display: none;">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Caixa</h1>
             </div>
 
-            <form class="row g-3">
-              <div class="col-md-8">
-                <label for="senhaActual" class="form-label">Senha actual</label>
-                <input type="password" class="form-control senhaActual" id="senhaActual" required>
-              </div>
-              <div class="col-md-8">
-                <label for="novaSenha" class="form-label">Nova senha</label>
-                <input type="password" class="form-control novaSenha" id="novaSenha" required>
-              </div>
-              <div class="col-md-8">
-                <label for="confSenha" class="form-label">Confirmar a nova senha</label>
-                <input type="password" class="form-control confSenha" id="confSenha" required>
-              </div>
-            </form>
-            <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="margin: 20px 0px; width: fit-content;">
-              <div class="col-6">
-                <button class="btn btn-primary btnAlterarSenha" type="submit">Alterar senha</button>
-              </div>
+
+          </section>
+
+          <section class="produtos" style="display: none;">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Produtos</h1>
             </div>
-          </div>
 
-        </section>
+            <div class="registarProdutos">
+              <h2 id="sectionCadas">Cadastro de produtos</h2>
 
-        <section class="modalSection">
-          <div class="registarVenda">
-            <!--<div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
-              <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title h4" id="exampleModalFullscreenLabel">Full screen modal</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div>
+                <div class="bd-example">
+                <form class="row g-3">
+                  <div class="col-md-12">
+                    <label for="nomeProdutoCadastro" class="form-label">Nome do produto</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control nomeProd" id="nomeProdutoCadastro" required>
+                    </div>
                   </div>
-                  <div class="modal-body">
-                    ...
+                  <div class="col-md-4">
+                    <label for="precoCompraProduto" class="form-label">Preço de compra /uni.</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control precCompra" id="precoCompraProduto" required>
+                      <span class="input-group-text">Mts</span>
+                    </div>
+                    
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <div class="col-md-4">
+                    <label for="precoVendaProduto" class="form-label">Preço para venda /uni.</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control precVendaR" id="precoVendaProduto" aria-describedby="inputGroupPrepend3" required>
+                      <span class="input-group-text">Mts</span>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>-->
-            <div class="modal fade modalRegistarVendas" id="modalRegistarVendas" tabindex="-1" aria-labelledby="tituloModalRegVendas" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="tituloModalRegVendas">Registar Vendas</h5>
-                    <!--<button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>-->
+                  <div class="col-md-4">
+                    <label for="lucroVendaProduto" class="form-label">Lucro da venda /uni.</label>
+                    <div class="input-group">
+                      <input type="number" class="form-control lucroVenda" id="lucroVendaProduto" aria-describedby="inputGroupPrepend3" disabled>
+                      <span class="input-group-text">Mts</span>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <label for="lucroVendaProduto" class="form-label">Data de validade</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control dataValidade" id="lucroVendaProduto" aria-describedby="inputGroupPrepend3" placeholder="Ex.: 30/12/2000">
+                      <span class="input-group-text">Mts</span>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="horaRegCadProdutos" class="form-label">Hora</label>
+                      <input type="text" class="form-control horaRegCadProd" id="horaRegCadProdutos" aria-describedby="inputGroupPrepend3" disabled>
                   </div>
                   
-                  <div class="modal-body">
-                    <div class="selecionarProdutos">
-                      <p>Selecione o produto e a sua quantidade desejada</p>
-                      <div class="produtosAdicio row  row-cols-1 row-cols-md-2 g-4">
+                </form>
 
+                <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="margin: 20px 0px ;">
+                  <div class="col-4">
+                    <button class="btn btn-primary btnRegProd" type="submit">Registar Produto</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-primary btnAlterProd" type="submit">Alterar Produto</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-primary btnApagProd" type="submit" disabled>Apagar Produto</button>
+                  </div>
+                </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="" style="margin: 30px 0px">
+              <h2 id="sectionEntrEst">Registo de entrada no stoque</h2>
+
+              <div>
+                <div class="bd-example">
+                <form class="row g-3">
+                  <div class="col-md-12">
+                    <label for="nomeProdutoEstoque" class="form-label label2">Nome do produto</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control nomeProdE" id="codProdutoEstoque" required>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <label for="quantProdEstoque" class="form-label">Quantidade</label>
+                    <input type="text" class="form-control quantProdE" id="quantProdEstoque">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="horaRegRegEntradaActual" class="form-label">Hora actual</label>
+                      <input type="text" class="form-control horaRegEst" id="horaRegRegEntradaActual" aria-describedby="inputGroupPrepend3" disabled>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-primary btnAdiProdE" type="submit">Adicionar Produto</button>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="" style="margin: 30px 0px">
+              <h2 id="sectionVerEst">Ver stoque</h2>
+
+              <!--<div class="col-4">
+                <button class="btn btn-outline-primary btnRefresh" type="submit">Refresh</button>
+              </div>-->
+
+              <div>
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome do produto</th>
+                    <th scope="col">Quantidade disponivel</th>
+                    <th scope="col">Ultima modificacao</th>
+                  </tr>
+                  </thead>
+                  <tbody class="bodyEstoque"></tbody>
+                </table>
+              </div>
+            </div>
+
+
+          </section>
+
+          <section class="colaboradores" style="display: none;">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Colaboradores</h1>
+            </div>
+      
+              <div class="registarVendas">
+                <h2 id="sectionCadasCol">Cadastro de Colaboradores</h2>
+      
+                <div>
+                  <div class="bd-example">
+                  <form class="row g-3">
+                    <div class="col-md-4">
+                      <label for="codColaboradores" class="form-label">Codigo do colaboradores</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text">@</span>
+                        <input type="text" class="form-control usuarioColab" id="codColaboradores" required>
                       </div>
                     </div>
-
-                    <div class="selecionarMPagamento" style="display: none;">
-                      <p>Selecione o método de pagamento desejado</p>
-                      <div class="metodosPagamentos row  row-cols-1 row-cols-md-2 g-4">
-
-                      </div>
+                    <div class="col-md-8">
+                      <label for="nomeColaboradores" class="form-label">Nome do colaboradores</label>
+                      <input type="text" class="form-control nomeColab" id="nomeColaboradores" required>
                     </div>
-
-                    <div class="finalizarPreVenda" style="display: none;">
-                      <div class="metodosPagamentos row  row-cols-1 row-cols-md-1 g-4" style="margin-top: 20px">
-                        <div class="col mx-auto">
-                          <div class="row">
-                            <button type="button" class="btn btn-secondary btn-sm p-2 btnAdicionarAMesa">Adicionar a uma mesa</button>
-                          </div>
-                          <div class="row align-middle" style="margin: 10px 0px; text-align: center;">
-                            <h4 class="">Ou</h4>
-                          </div>
-                          <div class="row">
-                            <button type="button" class="btn btn-primary btn-sm p-2 btnFinalizarVenda" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">Finalizar venda</button>
-                          </div>
-                        </div>
-                        <div class="col mesasDisponiveis" style="display: none;">
-
-                        </div>
+                    <div class="col-md-8">
+                      <label for="enderecoColaboradores" class="form-label">Endereço</label>
+                      <input type="address" class="form-control enderColab" id="enderecoColaboradores" required>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="telColaboradores" class="form-label">Telefone</label>
+                      <input type="tel" class="form-control telColab" id="telColaboradores" required>
+                    </div>
+                    <div class="col-md-12">
+                      <label for="mailColaboradores" class="form-label">E-mail</label>
+                      <input type="email" class="form-control emailColab" id="mailColaboradores" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="categoria" class="form-label">Categoria</label>
+                      <select class="form-select form-select catgColab" id="categoria" aria-label=".form-select-lg example">
+                        <option selected>Selecione a opção</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Gerente Caixa">Gerente Caixa</option>
+                        <option value="Gerente Vendas">Gerente Vendas</option>
+                        <option value="Gerente Estoque">Gerente Estoque</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="Colaboradores" class="form-label">Senha Inicial</label>
+                        <input type="password" class="form-control Colaboradores passColab" id="passIni" aria-describedby="inputGroupPrepend3">
+                    </div>
+                  </form>
+                    <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="position: relative; width: 100%; margin: 20px 0px;">
+                      <div class="col-4">
+                        <button class="btn btn-primary btnCadasColab" type="button">Cadastrar Colaborador</button>
+                      </div>
+                      <div class="col-4">
+                        <button class="btn btn-primary" type="button">Alterar Colaborador</button>
+                      </div>
+                      <div class="col-4">
+                        <button class="btn btn-primary" type="button">Apagar Colaborador</button>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+      
+              <div class="" style="margin: 30px 0px">
+                <h2 id="sectionVerCol">Ver colaboradores</h2>
+      
+                <div style="position: relative; width: 100%; overflow: scroll;">
+                  <table class="table table-striped" style="position: relative; width: 100%; max-width: max-content; overflow: scroll;">
+                    <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Categoria</th>
+                      <th scope="col">Esdereco</th>
+                      <th scope="col">telefone</th>
+                      <th scope="col">E-mail</th>
+                    </tr>
+                    </thead>
+                    <tbody class="bodyColab">
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+          </section>
 
-                  <div class="modal-footer">
-                    <div class="btnModalRegvendas" style="display: flex; flex-direction: row; flex-wrap: none;">
-                      <div class="divBtnCancelar">
-                        <button type="button" class="btn btn-secondary btnCancelar" data-bs-dismiss="modal">Cancelar</button>
+          <section class="usuario" style="display: none;">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">Usuário</h1>
+            </div>
+
+            <div class="dadosUser">
+              <div class="txtDadosUser">
+                <h2>Dados do usuário</h2>
+              </div>
+              <div class="listaDadosUser">
+                <div>
+                  <strong>Código: </strong>
+                  <label class="userCod" for="">Leonildo Julio</label>
+                </div>
+                <div>
+                  <strong>Nome: </strong>
+                  <label class="userNome" for="">Leonildo Julio</label>
+                </div>
+                <div>
+                  <strong>Categoria: </strong>
+                  <label class="userCategoria" for="">Leonildo Julio</label>
+                </div>
+                <div>
+                  <strong>Endereço: </strong>
+                  <label class="userEnder" for="">Leonildo Julio</label>
+                </div>
+                <div>
+                  <strong>Telefone: </strong>
+                  <label class="userTelefone" for="">Leonildo Julio</label>
+                </div>
+                <div>
+                  <strong>E-mail: </strong>
+                  <label class="userMail" for="">Leonildo Julio</label>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="alterSenha">
+              <div class="txt">
+                <h2>Alterar senha do usário</h2>
+              </div>
+
+              <form class="row g-3">
+                <div class="col-md-8">
+                  <label for="senhaActual" class="form-label">Senha actual</label>
+                  <input type="password" class="form-control senhaActual" id="senhaActual" required>
+                </div>
+                <div class="col-md-8">
+                  <label for="novaSenha" class="form-label">Nova senha</label>
+                  <input type="password" class="form-control novaSenha" id="novaSenha" required>
+                </div>
+                <div class="col-md-8">
+                  <label for="confSenha" class="form-label">Confirmar a nova senha</label>
+                  <input type="password" class="form-control confSenha" id="confSenha" required>
+                </div>
+              </form>
+              <div class=" d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3" style="margin: 20px 0px; width: fit-content;">
+                <div class="col-6">
+                  <button class="btn btn-primary btnAlterarSenha" type="submit">Alterar senha</button>
+                </div>
+              </div>
+            </div>
+
+          </section>
+
+          <section class="modalSection">
+            <div class="registarVenda">
+              <!--<div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title h4" id="exampleModalFullscreenLabel">Full screen modal</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>-->
+              <div class="modal fade modalRegistarVendas" id="modalRegistarVendas" tabindex="-1" aria-labelledby="tituloModalRegVendas" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="tituloModalRegVendas">Registar Vendas</h5>
+                      <!--<button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>-->
+                    </div>
+                    
+                    <div class="modal-body">
+                      <div class="selecionarProdutos">
+                        <p>Selecione o produto e a sua quantidade desejada</p>
+                        <div class="produtosAdicio row  row-cols-1 row-cols-md-2 g-4">
+
+                        </div>
                       </div>
-                      <div class="divBtnProximo" style="margin: 0px 0px 0px 20px;">
-                        <button type="button" class="btn btn-primary btnProximoRegVenda">Próximo</button>
+
+                      <div class="selecionarMPagamento" style="display: none;">
+                        <p>Selecione o método de pagamento desejado</p>
+                        <div class="metodosPagamentos row  row-cols-1 row-cols-md-2 g-4">
+
+                        </div>
+                      </div>
+
+                      <div class="finalizarPreVenda" style="display: none;">
+                        <div class="metodosPagamentos row  row-cols-1 row-cols-md-1 g-4" style="margin-top: 20px">
+                          <div class="col mx-auto">
+                            <div class="row">
+                              <button type="button" class="btn btn-secondary btn-sm p-2 btnAdicionarAMesa">Adicionar a uma mesa</button>
+                            </div>
+                            <div class="row align-middle" style="margin: 10px 0px; text-align: center;">
+                              <h4 class="">Ou</h4>
+                            </div>
+                            <div class="row">
+                              <button type="button" class="btn btn-primary btn-sm p-2 btnFinalizarVenda" data-bs-toggle="modal" data-bs-target="#modalRegistarVendas">Finalizar venda</button>
+                            </div>
+                          </div>
+                          <div class="col mesasDisponiveis" style="display: none;">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <div class="btnModalRegvendas" style="display: flex; flex-direction: row; flex-wrap: none;">
+                        <div class="divBtnCancelar">
+                          <button type="button" class="btn btn-secondary btnCancelar" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                        <div class="divBtnProximo" style="margin: 0px 0px 0px 20px;">
+                          <button type="button" class="btn btn-primary btnProximoRegVenda">Próximo</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-      </main>
+        </main>
+      </div>
     </div>
-  </div>
 
-    
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="sidebars.js"></script>
-    <script src="../js/sidebarActions.js"></script>
-    <script src="../js/adicionaruser.js" type="module"></script>
-    <script src="../js/adicionarprod.js" type="module"></script>
-    <script src="../js/entradaEstoque.js" type="module"></script>
-    <script src="../js/regVenda.js" type="module"></script>
-    <script src="../js/verProd.js" type="module"></script>
-    <script src="../js/adicionarpedido.js" type="module"></script>
-    <script src="../js/dadosUser.js" type="module"></script>
-    <script src="../js/verPedidos.js" type="module"></script>
-    <script src="../js/verColab.js" type="module"></script>
-    <script src="../js/horaReg.js"></script>
-    <script src="../js/userLogado.js" type="module"></script>
-    <script src="../js/logout.js" type="module"></script>
-    <script src="../js/alterarSenha.js" type="module"></script>
-    <script src="../js/chartDesempenho.js"></script>
+      
+      <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="sidebars.js"></script>
+      <script src="../js/sidebarActions.js"></script>
+      <script src="../js/adicionaruser.js" type="module"></script>
+      <script src="../js/adicionarprod.js" type="module"></script>
+      <script src="../js/entradaEstoque.js" type="module"></script>
+      <script src="../js/regVenda.js" type="module"></script>
+      <script src="../js/verProd.js" type="module"></script>
+      <script src="../js/adicionarpedido.js" type="module"></script>
+      <script src="../js/dadosUser.js" type="module"></script>
+      <script src="../js/verPedidos.js" type="module"></script>
+      <script src="../js/verColab.js" type="module"></script>
+      <script src="../js/horaReg.js"></script>
+      <script src="../js/userLogado.js" type="module"></script>
+      <script src="../js/logout.js" type="module"></script>
+      <script src="../js/alterarSenha.js" type="module"></script>
+      <script src="../js/chartDesempenho.js"></script>
 
-      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+  </body>
 </html>
