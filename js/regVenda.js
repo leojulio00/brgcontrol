@@ -12,11 +12,13 @@ var mesasDisponiveis = document.querySelector(".mesasDisponiveis")
 var divSelecProdutos = document.querySelector(".selecionarProdutos")
 var divSelecMetodos = document.querySelector(".selecionarMPagamento")
 var divBtnProximo = document.querySelector(".divBtnProximo")
+var divMesasDisponiveis = document.querySelector(".divMesasDisponiveis")
 var spanTotalVenda = document.querySelector(".spanTotalVenda")
 var btnAdicionarAMesa = document.querySelector(".btnAdicionarAMesa")
 var btnFinalizarVenda = document.querySelector(".btnFinalizarVenda")
 var botaoProximo = document.querySelector(".btnProximoRegVenda")
 var botaoCancelar = document.querySelector(".btnCancelar")
+var botaoCancelar2 = document.querySelector(".btnCancelar2")
 var btnRegVenda = document.querySelector(".btnRegVenda")
 
 
@@ -26,6 +28,68 @@ const db = getDatabase(app);
 set(ref(db, 'produtos/selecProdutosValor/'), {
   valorTotal: 0
 });
+
+function regVendasNormal(){
+  set(ref(db, 'produtos/selecProdutosValor/'), {
+    valorTotal: 0
+  });
+
+  const dbRefProdSelect = ref(db, "produtos/selecProdutos")
+  const dbRefMethSelect = ref(db, "metodosPagamento/metodoSelecionado")
+
+  remove(dbRefProdSelect)
+  remove(dbRefMethSelect)
+  
+  divSelecProdutos.style.display = "block"
+  divSelecMetodos.style.display = "none"
+  finalizarPreVenda.style.display = "none"
+
+  //window.location.href = "./dashboard.html"
+
+  let divCol = document.createElement("div")
+  let divCard = document.createElement("div")
+  let divCardBody = document.createElement("div")
+  let nomeMetodoTxt = document.createElement("p")
+  let divCol2 = document.createElement("div")
+  let divCard2 = document.createElement("div")
+  let divCardBody2 = document.createElement("div")
+  let nomeProdTxt = document.createElement("p")
+
+  nomeMetodoTxt.innerHTML = "Nenhum método Escolhido"
+  nomeProdTxt.innerHTML = "Nenhum produto Escolhido"
+  
+  divCol.classList.add("col")
+  divCard.classList.add("card")
+  divCard.classList.add("cardRegVendasSelecionado")
+  divCardBody.classList.add("card-body")
+  nomeMetodoTxt.style.margin = "0px"
+  divCol2.classList.add("col")
+  divCard2.classList.add("card")
+  divCard2.classList.add("cardRegVendasSelecionado")
+  divCardBody2.classList.add("card-body")
+  nomeProdTxt.style.margin = "0px"
+
+  divCol.appendChild(divCard)  
+  divCard.appendChild(divCardBody) 
+  divCardBody.appendChild(nomeMetodoTxt) 
+  
+  divCol2.appendChild(divCard2)  
+  divCard2.appendChild(divCardBody2) 
+  divCardBody2.appendChild(nomeProdTxt) 
+  
+  if(metodoPagamentoEscolhido.childNodes.length == 0){
+    metodoPagamentoEscolhido.appendChild(divCol)
+  }
+
+  if(produtosEscolhidoFinal.childNodes.length == 0){
+    produtosEscolhidoFinal.appendChild(divCol2)
+  }
+
+  spanTotalVenda.innerHTML = "0 " + TipoMoeda
+  window.onload = GetAllDataRealtime()
+  window.onload = GetAllDataRealtimeMetodosP()
+  window.location.reload()
+}
 
 function addItemToTable(nomeProd, precVenda, tipoMoeda){
     let divCol = document.createElement("div")
@@ -161,8 +225,6 @@ function addItemToTableMetodosP(nomeMetodo){
       }else{
         divSelecMetodos.style.display = "none"
         finalizarPreVenda.style.display = "block"
-
-        divBtnProximo.innerHTML = "" 
       }
     }
 
@@ -206,7 +268,6 @@ function GetAllDataRealtimeMetodosP(){
 }
 
 window.onload = GetAllDataRealtimeMetodosP()
-
 
 
 function addMetodNoCard(nomeMetodo){
@@ -325,25 +386,130 @@ function PegarTdsProdutosSelecionados(){
   })
 }
 
+let produtosSelecionadosMesa = ""
+let metodoSelecionandoMesa = ""
+
+const dbRefProdutosMesa = ref(db, "produtos/selecProdutos")
+const dbRefMetodoMesa = ref(db, "/metodosPagamento/metodoSelecionado")
+onValue(dbRefProdutosMesa, (snapshot)=>{
+  const data = snapshot.val()
+  produtosSelecionadosMesa = data
+})
+
+onValue(dbRefMetodoMesa, (snapshot)=>{
+  const data = snapshot.val()
+  metodoSelecionandoMesa = data
+})
+
+var chaveMesaString
+var chaveMesa = 0
+
+
+function addMesasNaDiv(codigoMesa, rotulo, tamanho){
+  let divCol = document.createElement("div")
+  let divCard = document.createElement("div")
+  let divCardBody = document.createElement("div")
+  let codigoMesaTxt = document.createElement("h5")
+  let rotuloMesaTxt = document.createElement("h5")
+  let tamanhoMesaTxt = document.createElement("h5")
+
+  codigoMesaTxt.innerHTML = "Cod. " + codigoMesa
+  rotuloMesaTxt.innerHTML = "Rot." + rotulo
+  tamanhoMesaTxt.innerHTML = "Tamanho " + tamanho
+
+  
+
+  divCard.addEventListener("click", ()=>{
+    const commentsRefMesa = ref(db, 'mesas/produtos/' + codigoMesa + "/");
+    onChildAdded(commentsRefMesa, (data) => {
+      chaveMesaString = data.key
+      console.log(chaveMesaString)
+
+      chaveMesa = parseInt(chaveMesaString)
+    });
+
+    
+      console.log(chaveMesa)
+      console.log(codigoMesa)
+
+      console.log(chaveMesa++)
+      set(ref(db, 'mesas/produtos/' + codigoMesa + "/" + chaveMesa), {
+        codigoMesa: codigoMesa,
+        produtos: produtosSelecionadosMesa,
+        metodoPagamento: metodoSelecionandoMesa
+      });
+
+    alert("Adicionado a mesa com sucesso")
+    
+    //regVendasNormal()
+  })
+
+  divCol.classList.add("col")
+  divCard.classList.add("card")
+  divCard.classList.add("cardRegVendasSelecionado")
+  divCardBody.classList.add("card-body")
+  divCardBody.style.display = "flex"
+  divCardBody.style.flexDirection = "row"
+  divCardBody.style.flexWrap = "nowrap"
+  divCardBody.style.justifyContent = "space-between"
+  divCardBody.style.margin = "5px 0px"
+  codigoMesaTxt.classList.add("card-title")
+  codigoMesaTxt.style.margin = "0px"
+  rotuloMesaTxt.classList.add("card-title")
+  rotuloMesaTxt.style.margin = "0px"
+  tamanhoMesaTxt.classList.add("card-text")
+  tamanhoMesaTxt.style.margin = "0px"
+
+  divCol.appendChild(divCard)  
+  divCard.appendChild(divCardBody) 
+  divCardBody.appendChild(codigoMesaTxt)  
+  divCardBody.appendChild(rotuloMesaTxt)
+  divCardBody.appendChild(tamanhoMesaTxt)  
+
+  divMesasDisponiveis.appendChild(divCol)
+}
+
+function addTdasMesasNaDiv(produtos){
+  divMesasDisponiveis.innerHTML = ""
+  produtos.forEach(element => {
+      addMesasNaDiv(element.codigoMesa, element.rotulo, element.tamanho)
+  });
+}
+
+function PegarTdsMesas(){
+  const dbRef = ref(db, "mesas/todasMesas")
+
+  onValue(dbRef, (snapshot) =>{
+      var todasMesas = []
+
+      snapshot.forEach(childSnapshot => {
+        todasMesas.push(childSnapshot.val())
+      })
+
+      addTdasMesasNaDiv(todasMesas)
+  })
+}
+
+window.onload = PegarTdsMesas()
+
 
 btnAdicionarAMesa.addEventListener("click", ()=>{
   mesasDisponiveis.style.display = "block"
-  alert("Esta em block")
 })
 
 btnFinalizarVenda.addEventListener("click", ()=>{
-  let btnProximo = document.createElement("button")
+  //let btnProximo = document.createElement("button")
   let valorTotal = 0
   //modalRegistarVendas.classList.remove("show")
   //modalRegistarVendas.ariaHidden = "true"
   //modalRegistarVendas.style.display = "none"
 
-  btnProximo.innerHTML = "Próximo"
+  /*btnProximo.innerHTML = "Próximo"
   btnProximo.classList.add("btn")
   btnProximo.classList.add("btn-primary")
   btnProximo.classList.add("btnProximoRegVenda")
 
-  divBtnProximo.appendChild(btnProximo)
+  divBtnProximo.appendChild(btnProximo)*/
 
   divSelecProdutos.style.display = "block"
   divSelecMetodos.style.display = "none"
@@ -352,7 +518,8 @@ btnFinalizarVenda.addEventListener("click", ()=>{
   window.onload = GetAllDataRealtimeMetodosP()
   window.onload = PegarMetodosSelecionado()
   window.onload = PegarTdsProdutosSelecionados()
-
+  divBtnProximo.classList.remove("d-none") 
+  divBtnProximo.classList.add("d-block")   
 
   const dbRef = ref(db, "produtos/selecProdutosValor")
 
@@ -366,19 +533,22 @@ btnFinalizarVenda.addEventListener("click", ()=>{
 })
 
 
-botaoProximo.addEventListener("click", ()=>{
-  const dbRef = ref(db, "produtos/selecProdutos")
-  var dados
+const dbRef = ref(db, "produtos/selecProdutos")
+var dadosSelecProdBtnPrx
 
-  onValue(dbRef, (snapshot)=>{
-    const data = snapshot.val()    
-    dados = data
-  })
+onValue(dbRef, (snapshot)=>{
+  const data = snapshot.val()    
+  dadosSelecProdBtnPrx = data
+})
+
+
+botaoProximo.addEventListener("click", ()=>{
+  
 
   function passarPTelaMetodos(){
-    console.log(dados)
+    console.log(dadosSelecProdBtnPrx)
 
-    if(dados == null){
+    if(dadosSelecProdBtnPrx == null){
       alert("Selecione um produto")
     }else{
       divSelecProdutos.style.display = "none"
@@ -386,27 +556,12 @@ botaoProximo.addEventListener("click", ()=>{
 
       botaoProximo.classList.remove("btnProximoRegVenda")
       botaoProximo.classList.add("btnProximoRegVendaModalMesas")
-      divBtnProximo.innerHTML = "" 
+      divBtnProximo.classList.add("d-none") 
     }
   }
 
   passarPTelaMetodos()
   
-})
-
-botaoCancelar.addEventListener("click", ()=>{
-  const dbRefProdSelect = ref(db, "produtos/selecProdutos")
-  const dbRefMethSelect = ref(db, "metodosPagamento/metodoSelecionado")
-
-  remove(dbRefProdSelect)
-  remove(dbRefMethSelect)
-
-  window.onload = GetAllDataRealtime()
-  window.onload = GetAllDataRealtimeMetodosP()
-
-  divSelecProdutos.style.display = "block"
-  divSelecMetodos.style.display = "none"
-  finalizarPreVenda.style.display = "none"
 })
 
 const dbRefMetPagamentoE = ref(db, "metodosPagamento/metodoSelecionado")
@@ -422,17 +577,31 @@ onValue(dbRefMetPagamentoE, (snapshot)=>{
   }
 })
 
+botaoCancelar.addEventListener("click", ()=>{
+  if(confirE == true){
+    regVendasNormal()
+    alert("Cancelado com sucesso") 
+  }else{
+    alert("Nada seleciondo")
+  }
+})
+
+botaoCancelar2.addEventListener("click", ()=>{
+  if(confirE == true){
+    regVendasNormal()
+    alert("Cancelado com sucesso") 
+  }else{
+    alert("Nada seleciondo")
+  }
+})
+
 var chaveVendasString
 var chaveVendas
 
 const commentsRef = ref(db, 'vendas');
-  onChildAdded(commentsRef, (data) => {
-    //addCommentElement(postElement, data.key, data.val().text, data.val().author);
-    const dados = data.val()
-    console.log(data.key)
-    chaveVendasString = data.key
-    console.log(parseInt(chaveVendasString) + 1)
-  });
+onChildAdded(commentsRef, (data) => {
+  chaveVendasString = data.key
+});
 
 btnRegVenda.addEventListener("click", ()=>{
   let produtosSelecionados = ""
@@ -458,30 +627,11 @@ btnRegVenda.addEventListener("click", ()=>{
       produtos: produtosSelecionados,
       metodoPagamento: metodoSelecionando
     });
-
+    regVendasNormal()
     alert("Venda cadatrada com sucesso")
-
-    
   }else{
     alert("Adicione produtos para venda antes")
   }
-
-  set(ref(db, 'produtos/selecProdutosValor/'), {
-    valorTotal: 0
-  });
-
-  const dbRefProdSelect = ref(db, "produtos/selecProdutos")
-  const dbRefMethSelect = ref(db, "metodosPagamento/metodoSelecionado")
-
-  remove(dbRefProdSelect)
-  remove(dbRefMethSelect)
-
-  window.onload = GetAllDataRealtime()
-  window.onload = GetAllDataRealtimeMetodosP()
-
-  divSelecProdutos.style.display = "block"
-  divSelecMetodos.style.display = "none"
-  finalizarPreVenda.style.display = "none"
 })
 
 

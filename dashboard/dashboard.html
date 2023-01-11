@@ -279,7 +279,7 @@
                       <div class="col">
                         <div class="card cardRegVendasSelecionado">
                           <div class="card-body">
-                            Nenhum método Escolhido
+                            <p style="margin: 0px;">Nenhum método Escolhido</p>
                           </div>
                         </div>
                       </div>
@@ -316,7 +316,7 @@
                   
                   <div class="col-12">
                     <button class="btn btn-primary btnRegVenda align-right" type="submit">Registar Venda</button>
-                    
+                    <button type="button" class="btn btn-secondary btnCancelar" data-bs-dismiss="modal">Cancelar</button>
                   </div>
                 </div>
               </div>
@@ -391,33 +391,29 @@
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <label for="estadoPediMesas" class="form-label">Estado da mesa</label>                
+                    <label for="tamanhoMesa" class="form-label">Tamanho</label>
+                    <input type="number" class="form-control tamanhoMesa" id="tamanhoMesa" aria-describedby="inputGroupPrepend3" placeholder="4">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="formaMesa" class="form-label">Forma</label>                
                     
-                      <select class="form-select form-select" id="estadoPediMesas" aria-label=".form-select-lg example">
+                      <select class="form-select form-select formaMesaSelect" id="formaMesa" aria-label=".form-select-lg example">
                         <option selected>Selecione a opção</option>
-                        <option value="1">Aberto</option>
-                        <option value="2">Cancelado</option>
-                        <option value="3">Finalizado</option>
+                        <option value="Retangular">Retangular</option>
+                        <option value="Quadrada">Quadrada</option>
+                        <option value="Circular">Circular</option>
+                        <option value="Oval">Oval</option>
+                        <option value="Outro">Outro</option>
                       </select>
                     
                   </div>
-                  <div class="col-md-4">
-                    <label for="responsaMesa" class="form-label">Responsavel</label>
-                    <input type="text" class="form-control" id="responsaMesa" aria-describedby="inputGroupPrepend3">
-                  </div>
                   <div class="col-md-12">
-                    <label for="prodConsumidos" class="form-label">Produtos Consumidos</label>
-                    <textarea class="form-control prodConsumidos" aria-label="With textarea" id="prodConsumidos"></textarea>
+                    <label for="rotuloMesa" class="form-label">Rótulo</label>
+                    <input type="text" class="form-control rotuloMesa" id="rotuloMesa">
                   </div>
                   
                   <div class="col-4">
-                    <button class="btn btn-primary" type="submit">Adicionar Pedido</button>
-                  </div>
-                  <div class="col-4">
-                    <button class="btn btn-primary" type="submit">Alterar Pedido</button>
-                  </div>
-                  <div class="col-4">
-                    <button class="btn btn-primary" type="submit">Apagar Pedido</button>
+                    <button class="btn btn-primary btnCadastrarMesa" type="submit">Cadastrar Mesa</button>
                   </div>
                 </form>
               </div>
@@ -768,7 +764,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="tituloModalRegVendas">Registar Vendas</h5>
-                      <!--<button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>-->
+                      <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     
                     <div class="modal-body">
@@ -800,7 +796,8 @@
                             </div>
                           </div>
                           <div class="col mesasDisponiveis" style="display: none;">
-
+                            <p>Mesas disponíveis</p>
+                            <div class="row row-cols-1 row-cols-md-1 g-4 divMesasDisponiveis"></div>
                           </div>
                         </div>
                       </div>
@@ -809,7 +806,7 @@
                     <div class="modal-footer">
                       <div class="btnModalRegvendas" style="display: flex; flex-direction: row; flex-wrap: none;">
                         <div class="divBtnCancelar">
-                          <button type="button" class="btn btn-secondary btnCancelar" data-bs-dismiss="modal">Cancelar</button>
+                          <button type="button" class="btn btn-secondary btnCancelar2" data-bs-dismiss="modal" >Cancelar</button>
                         </div>
                         <div class="divBtnProximo" style="margin: 0px 0px 0px 20px;">
                           <button type="button" class="btn btn-primary btnProximoRegVenda">Próximo</button>
@@ -844,6 +841,7 @@
       <script src="../js/userLogado.js" type="module"></script>
       <script src="../js/logout.js" type="module"></script>
       <script src="../js/alterarSenha.js" type="module"></script>
+      <script src="../js/mesas.js" type="module"></script>
       <script src="../js/chartDesempenho.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
